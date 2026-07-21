@@ -33,8 +33,9 @@
   .grid{display:grid;gap:14px}
   .station{border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:14px;
     padding:14px 16px;background:var(--soft)}
-  .station.pool{border-left-color:var(--accent2)}
+  .station.digital{border-left-color:var(--accent2)}
   .station h3{margin-top:0}
+  .stnum{display:inline-block;font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.5px}
   .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;
     letter-spacing:.5px;color:#fff;background:var(--accent2);padding:3px 8px;border-radius:20px}
   .tag.a{background:var(--accent)}
@@ -44,6 +45,7 @@
   .boost b{color:#0f7a45}
   .story{background:#fff4e7;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;
     padding:8px 12px;margin:8px 0;font-size:.95rem;font-style:italic;color:#6a4a1e}
+  .story.beat{padding:6px 12px;margin:5px 0}
   .option{background:#eef4fc;border:1px solid #c6d6f2;border-radius:10px;padding:10px 12px;margin:8px 0}
   .option b{color:var(--accent2)}
   .refs{background:#fbf9f3;border:1px dashed #d8d2c4;border-radius:10px;padding:9px 12px;margin:10px 0 2px;font-size:.88rem}
@@ -82,7 +84,7 @@
     border-radius:12px;cursor:pointer;font-size:.95rem}
   .btn.alt{background:var(--accent2);color:#fff}
 
-  /* ---------- AUSWEISE (Tech-Look, minimalistisch) ---------- */
+  /* ---------- AUSWEISE ---------- */
   #ausweise .badges{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .badge{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
     box-shadow:0 6px 18px rgba(20,40,80,.12);display:flex;flex-direction:column;color:var(--ink)}
@@ -112,7 +114,6 @@
     .badge .photo{width:84px;height:100px;font-size:2.8rem}
     .badge .name{font-size:1.3rem}
   }
-  /* --- Druck --- */
   @media print{
     body{background:#fff}
     .no-print{display:none !important}
@@ -139,70 +140,74 @@
     <h2>🧪 Die Geschichte</h2>
     <p>Dr. Neutrinos <strong>„Superformel"</strong> – die Formel, mit der die Akademie ihren
     Wunder-Reaktor zündet – ist bei einem missglückten Experiment explodiert und in
-    <strong>vier Fragmente</strong> zerfallen. Die Fragmente sind als Zahlen im Labor verstreut, und
-    das letzte, wichtigste Bauteil (der „Aktivator") hat Dr. Neutrino vor dem Knall in einer Truhe
+    <strong>Fragmente</strong> zerfallen. Die Fragmente sind als Zahlen im Labor verstreut, und das
+    letzte, wichtigste Bauteil (der „Aktivator") hat Dr. Neutrino vor dem Knall in einer Truhe
     eingeschlossen. Die vier Kinder werden als Nachwuchs-Forscher aufgenommen, vereidigt – und
     bekommen den Auftrag, die Formel wieder zusammenzusetzen und den Reaktor neu zu zünden.</p>
 
-    <h2>📖 Kurzablauf der Story (zum Vorlesen)</h2>
-    <div class="story">🎬 <strong>Auftakt:</strong> „Alarm in der Akademie! Dr. Neutrino ist beim
-    Test der Superformel etwas danebengegangen – ein Knall, Rauch, und die Formel ist in vier
-    Fragmente zerbrochen. Ohne sie steht der Forscher-Reaktor still. Wir brauchen dringend neue
-    Forscher … genau euch! Zieht die Kittel an, hier sind eure Ausweise – und jetzt der Forscher-Eid."</div>
-    <div class="story">1️⃣ <strong>Vor Station 1 (pH-Trank):</strong> „Das erste Fragment steckt in
-    Dr. Neutrinos Geheimtrank. Nur wer den richtigen Säuregrad erkennt, liest die erste Zahl ab."</div>
-    <div class="story">2️⃣ <strong>Vor Station 2 (Geheimschrift):</strong> „Dr. Neutrino hat eine Zahl
-    unsichtbar versteckt – so wie echte Forscher geheime Notizen tarnen. Macht sie sichtbar!"</div>
-    <div class="story">3️⃣ <strong>Vor Station 3 (Spannung):</strong> „Der Reaktor braucht Strom.
-    Bringt die Batterien richtig in Reihe und messt – die Spannung verrät die dritte Zahl."</div>
-    <div class="story">4️⃣ <strong>Vor Station 4 (Dichte-Turm):</strong> „Das letzte Fragment schwebt
-    in einem Dichte-Turm. Findet heraus, welche Zahl euch die Schichten verraten."</div>
-    <div class="story">5️⃣ <strong>Vor Station 5 (Detektivlabor):</strong> „Jemand hat die Truhe
-    angefasst! An ihr klebt ein Fingerabdruck. Findet heraus, <em>wo</em> Dr. Neutrino sie versteckt hat."</div>
-    <div class="story">🏁 <strong>Finale – warum der „große Ausbruch"?</strong> „Ihr habt alle vier
-    Fragmente <span class="digit">2</span><span class="digit">5</span><span class="digit">3</span><span class="digit">1</span>
-    und den Ort! Öffnet die Truhe – darin liegt der <strong>Aktivator</strong> (die Hefe/der
-    Katalysator). Gebt ihn in die Formel … <strong>und der Reaktor zündet!</strong>" Der Schaum-Ausbruch
-    ist also kein bloßer Gag, sondern die <strong>sichtbare Belohnung</strong>: Die Superformel lebt
-    wieder, die Mission ist erfüllt – jetzt sind die Kinder <em>vollwertige</em> Forscher der Akademie.</div>
-
     <div class="code-hint">
-      <strong>Wie entsteht der Code?</strong> Jede Ziffer wird <em>abgelesen oder gemessen</em> –
-      nicht geschenkt. Kein Kind kann sie vorher „wissen":
-      <ul>
-        <li><strong>Stelle 1</strong> – pH-Skala: die Trankfarbe zeigt auf einen pH-Wert → <span class="digit">2</span></li>
-        <li><strong>Stelle 2</strong> – enthüllte Geheimzahl: die Schrift wird sichtbar → <span class="digit">5</span></li>
-        <li><strong>Stelle 3</strong> – Volt-Messung: Batterien in Reihe, Multimeter zeigt die Spannung → <span class="digit">3</span></li>
-        <li><strong>Stelle 4</strong> – Dichte-Turm: so viele Objekte bleiben auf der Wasserschicht → <span class="digit">1</span></li>
-      </ul>
-      Der Code lautet <span class="bigcode">2&nbsp;5&nbsp;3&nbsp;1</span> – das Detektivlabor (Station 5)
-      sagt, <strong>wo</strong> die Truhe mit diesem Schloss steht.
+      <strong>Wie entsteht der Code?</strong> Jede Station liefert eine Zahl, die
+      <em>abgelesen oder gemessen</em> wird – nie geschenkt. Unten stehen <strong>alle Stationen
+      gleichberechtigt</strong>, jede mit einer <strong>Beispiel-Zahl</strong>. Ihr wählt mit Merle
+      aus, welche ihr nehmt – die Zahlen der gewählten Stationen ergeben in eurer Reihenfolge den
+      Code. <strong>Die Länge ist frei</strong> (z. B. 4–7 Stellen). Beispiel mit vier Stationen:
+      <span class="bigcode">2&nbsp;5&nbsp;3&nbsp;1</span>
     </div>
 
+    <h2>📖 Kurzablauf der Story (zum Vorlesen)</h2>
+    <p class="intro">Vollversion mit <strong>allen</strong> Kandidaten-Stationen – jede liefert eine
+    Zahl. Beim Wegstreichen mit Merle legt ihr die finale Auswahl und Reihenfolge fest (siehe Abschnitt
+    „Auswahl &amp; Code").</p>
+    <div class="story">🎬 <strong>Auftakt:</strong> „Alarm in der Akademie! Dr. Neutrino ist beim
+    Test der Superformel etwas danebengegangen – ein Knall, Rauch, und die Formel ist in Fragmente
+    zerbrochen. Ohne sie steht der Forscher-Reaktor still. Wir brauchen dringend neue Forscher …
+    genau euch! Zieht die Kittel an, hier sind eure Ausweise – und jetzt der Forscher-Eid."</div>
+    <div class="story beat">🧪 <strong>pH-Trank:</strong> Säuregrad erkennen → Zahl <span class="digit">2</span></div>
+    <div class="story beat">🖊️ <strong>Geheimschrift:</strong> versteckte Zahl sichtbar machen → <span class="digit">5</span></div>
+    <div class="story beat">⚡ <strong>Spannung:</strong> Batterien in Reihe messen → <span class="digit">3</span></div>
+    <div class="story beat">🌈 <strong>Dichte-Turm:</strong> Objekte auf der Wasserschicht zählen → <span class="digit">1</span></div>
+    <div class="story beat">🔍 <strong>Detektivlabor:</strong> Fingerabdruck → Nummer des Verdächtigen → <span class="digit">4</span> (verrät zusätzlich den Fundort)</div>
+    <div class="story beat">⏱️ <strong>Pendel:</strong> Schwünge in fester Zeit zählen → <span class="digit">8</span></div>
+    <div class="story beat">🏀 <strong>Flummi:</strong> Rücksprunghöhe ablesen → <span class="digit">7</span></div>
+    <div class="story beat">🔦 <strong>Laser-Labyrinth:</strong> Strahl aufs richtige Zielfeld lenken → <span class="digit">6</span></div>
+    <div class="story beat">🌟 <strong>CD-Spektroskop:</strong> Farbstreifen zählen → <span class="digit">3</span></div>
+    <div class="story beat">✋ <strong>Reaktions-Blitz:</strong> fallendes Lineal fangen → <span class="digit">2</span></div>
+    <div class="story beat">⚖️ <strong>Waage:</strong> Gegengewichte zählen → <span class="digit">4</span></div>
+    <div class="story beat">🧱 <strong>Lego-Brücke:</strong> wie viele Gewichte sie trägt → <span class="digit">9</span></div>
+    <div class="story beat">🔢 <strong>Lego-Baumeister:</strong> Steine einer Zielfarbe zählen → <span class="digit">5</span></div>
+    <div class="story">🏁 <strong>Finale – warum der „große Ausbruch"?</strong> „Ihr habt alle
+    Fragmente gesammelt und den Ort! Öffnet die Truhe – darin liegt der <strong>Aktivator</strong>
+    (die Hefe/der Katalysator). Gebt ihn in die Formel … <strong>und der Reaktor zündet!</strong>"
+    Der Schaum-Ausbruch ist kein bloßer Gag, sondern die <strong>sichtbare Belohnung</strong>: Die
+    Superformel lebt wieder, die Mission ist erfüllt – jetzt sind die Kinder <em>vollwertige</em>
+    Forscher.</div>
+
     <details class="collapsible">
-      <summary>⏱️ Zeitplan (ca. 2 Stunden) <small>– zweitrangig, zum Aufklappen</small></summary>
+      <summary>⏱️ Zeitplan (Beispiel für ~5 Stationen) <small>– zweitrangig, zum Aufklappen</small></summary>
       <table class="timeline">
         <tr><td>0:00–0:15</td><td>Ankommen · Kittel &amp; Ausweise · Vereidigung · Story-Auftakt</td></tr>
-        <tr><td>0:15–0:30</td><td>Station 1 – Der pH-Geheimtrank</td></tr>
-        <tr><td>0:30–0:45</td><td>Station 2 – Die Geheimschrift</td></tr>
-        <tr><td>0:45–1:00</td><td>Station 3 – Die Spannungs-Messung</td></tr>
-        <tr><td>1:00–1:15</td><td>Station 4 – Der Dichte-Turm</td></tr>
-        <tr><td>1:15–1:30</td><td>Station 5 – Das Detektivlabor (Fundort)</td></tr>
+        <tr><td>0:15–1:30</td><td>Ausgewählte Stationen (je ~12–15 Min)</td></tr>
         <tr><td>1:30–1:45</td><td>Code zusammensetzen → Truhe öffnen → <strong>Finale-Effekt</strong></td></tr>
         <tr><td>1:45–2:00</td><td>Kuchen · Puffer · Toben</td></tr>
       </table>
+      <p class="lead">Faustregel: ca. 12–15 Min pro Station. Für 2 Stunden sind ~5 Stationen realistisch –
+      deshalb aus dem Pool unten auswählen.</p>
     </details>
 
-    <h2>🔭 Die fünf Kern-Stationen</h2>
+    <h2>🔬 Stationen-Pool – alle gleichberechtigt (Auswahl mit Merle)</h2>
+    <p class="intro">Alle Stationen stehen erst mal <strong>gleichwertig nebeneinander</strong>, jede mit
+    einer <strong>Beispiel-Zahl</strong>. Beim Durchsprechen mit Merle streicht ihr weg, bis die
+    gewünschte Anzahl übrig ist. Die Beispiel-Zahlen sind frei einstellbar.
+    <br><strong>Zusatzmaterial je nach Auswahl:</strong> Flummis, kleiner Laserpointer (≤ Klasse 2),
+    Taschenspiegel, Schnur + Muttern, Lineal, alte CD, Kleiderbügel + Becher, Legosteine.</p>
     <div class="grid">
 
       <div class="station">
-        <span class="tag a">Chemie · pH</span>
-        <h3>Station 1 – Der pH-Geheimtrank</h3>
-        <p>Rotkohlsaft ist ein natürlicher Farb-Indikator: Er zeigt je nach Säuregrad eine andere
-        Farbe. Auf einer <strong>nummerierten pH-Skala</strong> gehört zu jeder Farbe eine Zahl.
-        Die Kinder mischen den „Prüf-Trank" (Rotkohlsaft + etwas Zitronensäure) und vergleichen die
-        Farbe mit der Skala.</p>
+        <span class="stnum">STATION</span> <span class="tag a">Chemie · pH</span>
+        <h3>Der pH-Geheimtrank</h3>
+        <p>Rotkohlsaft ist ein natürlicher Farb-Indikator. Auf einer <strong>nummerierten pH-Skala</strong>
+        gehört zu jeder Farbe eine Zahl. Die Kinder mischen den „Prüf-Trank" (Rotkohlsaft + Zitronensäure)
+        und vergleichen die Farbe mit der Skala.</p>
         <div class="ph-scale">
           <div style="background:#e23d5a">2<small>rot</small></div>
           <div style="background:#c14fa0">4<small>pink</small></div>
@@ -212,291 +217,270 @@
           <div style="background:#3fae86">10<small>grün</small></div>
           <div style="background:#c9c24a">12<small>gelb</small></div>
         </div>
-        <div class="signal">🎯 <strong>Ergebnis:</strong> Der saure Trank färbt sich klar <strong>rot</strong>.</div>
-        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Rot steht auf der Skala bei
-        pH <span class="digit">2</span> → die abgelesene Zahl ist die Ziffer. Wer noch Natron
-        dazugibt, sieht die Farbe zu Blau/Grün „wandern" – zur Kontrolle, dass die Skala stimmt.</div>
-        <p><strong>Material:</strong> Rotkohl/Rotkohlsaft, Zitronensäure, Natron, klare Becher,
-        Pipetten, ausgedruckte pH-Skala (aus diesem Konzept).</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Der saure Trank färbt sich rot → auf der
+        Skala pH <span class="digit">2</span>. Natron dazu = Farbe „wandert" zu Blau/Grün (Kontrolle).</div>
+        <p><strong>Material:</strong> Rotkohl/Rotkohlsaft, Zitronensäure, Natron, Becher, Pipetten, pH-Skala.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
           <a href="https://www.compoundchem.com/2017/05/18/red-cabbage/">Compound Interest – Rotkohl-Indikator</a> ·
-          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Chem_p013/chemistry/make-cabbage-pH-indicator">Science Buddies – Cabbage pH Indicator</a> ·
-          <a href="https://stevespangler.com/experiments/red-cabbage-chemistry/">Steve Spangler – Red Cabbage Chemistry</a>.</div>
+          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Chem_p013/chemistry/make-cabbage-pH-indicator">Science Buddies</a>.</div>
       </div>
 
       <div class="station">
-        <span class="tag a">Chemie · Physik</span>
-        <h3>Station 2 – Die Geheimschrift</h3>
-        <p>Die Zahl ist vorab unsichtbar aufs Papier gebracht und wird von den Kindern sichtbar
-        gemacht. Zwei erprobte Varianten – nimm die, die dir sicherer erscheint:</p>
-        <div class="option">
-          <b>Variante A – Wachs-Resist (Hydrophobie):</b> Die Zahl vorab mit weißem Wachsmalstift/Kerze
-          auf weißen Karton malen (auf Weiß praktisch unsichtbar). Die Kinder streichen dünne
-          Wasserfarbe übers ganze Blatt – das Wachs stößt das Wasser ab, die Zahl bleibt weiß und
-          tritt scharf hervor. Kein Föhn/Bügeleisen nötig.</div>
-        <div class="option">
-          <b>Variante B – Natron-Tinte + Traubensaft (Säure-Base):</b> Die Zahl vorab mit
-          Natron-Wasser aufmalen und <em>vollständig trocknen</em> lassen. Die Kinder pinseln dunklen
-          Traubensaft (oder Rotkohl-Indikator) darüber – wo die Natron-Schrift sitzt, schlägt die Farbe
-          um und die Zahl erscheint. Schöne Brücke zu Station 1.
-          <div class="logic" style="margin:6px 0 0">Wichtig: Erst reveal, wenn die Natron-Schrift
-          <strong>ganz trocken</strong> ist – das ist die häufigste Fehlerquelle.</div></div>
-        <div class="signal">🎯 <strong>So entsteht die Ziffer:</strong> Die enthüllte Zahl <em>ist</em>
-        die Ziffer – hier <span class="digit">5</span>.</div>
-        <p><strong>Material A:</strong> weißer Karton, weißer Wachsmalstift/Kerze, Wasserfarbe/Pinsel.
-        <br><strong>Material B:</strong> Natron/Backpulver, Wattestäbchen, weißes Papier, dunkler
-        Traubensaft (o. Rotkohl-Indikator), Pinsel.</p>
+        <span class="stnum">STATION</span> <span class="tag a">Chemie · Physik</span>
+        <h3>Die Geheimschrift</h3>
+        <p>Die Zahl ist vorab unsichtbar aufs Papier gebracht. Zwei erprobte Varianten:</p>
+        <div class="option"><b>A – Wachs-Resist:</b> Zahl mit weißem Wachsmalstift/Kerze auf weißen
+        Karton; Kinder streichen Wasserfarbe drüber → Wachs stößt Wasser ab, Zahl bleibt weiß.</div>
+        <div class="option"><b>B – Natron-Tinte + Traubensaft:</b> Zahl mit Natron-Wasser aufmalen,
+        <em>ganz trocknen</em> lassen; Traubensaft drüberpinseln → Farbumschlag zeigt die Zahl.</div>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Die enthüllte Zahl <em>ist</em> die Ziffer
+        → <span class="digit">5</span>.</div>
+        <p><strong>Material:</strong> weißer Karton, weißer Wachsmalstift/Kerze, Wasserfarbe/Pinsel;
+        bzw. Natron, Wattestäbchen, dunkler Traubensaft.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
           <a href="https://www.sciencebuddies.org/stem-activities/invisible-ink">Science Buddies – Invisible Ink</a> ·
-          <a href="https://www.all-science-fair-projects.com/project1631.html">Baking Soda Invisible Ink &amp; Grape Juice</a> ·
-          <a href="https://kids.nationalgeographic.com/explorer-academy/article/invisible-ink">Nat Geo Kids – Make Invisible Ink</a>.</div>
+          <a href="https://www.all-science-fair-projects.com/project1631.html">Baking Soda Ink &amp; Grape Juice</a>.</div>
       </div>
 
       <div class="station">
-        <span class="tag a">Physik · E-Technik</span>
-        <h3>Station 3 – Die Spannungs-Messung (Reihenschaltung)</h3>
-        <p>Ein echtes Elektrotechnik-Experiment: In einer <strong>Reihenschaltung addieren sich die
-        Spannungen</strong> der Batterien. Die Kinder verbinden zwei 1,5-V-Batterien mit Krokoklemmen
-        richtig <em>hintereinander</em> (Plus an Minus) und messen mit dem <strong>Multimeter</strong>
-        (Stellung „V⎓", Gleichspannung).</p>
-        <div class="signal">🎯 <strong>Ergebnis:</strong> Das Multimeter zeigt rund <strong>3 Volt</strong>
-        (2 × 1,5 V). Bauen sie die Batterien dagegen parallel, bleibt es bei ~1,5 V – dann stimmt der
-        Aufbau noch nicht.</div>
-        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die gemessene Volt-Zahl ist die
-        Ziffer → <span class="digit">3</span>. (Andere Ziffer? 4 Batterien in Reihe ≈ 6 V →
-        <span class="digit">6</span>, ein 9-V-Block → <span class="digit">9</span>.)</div>
-        <p><strong>Material:</strong> 2–4× AA-Batterien + Halter, Krokoklemmen-Kabel, ein einfaches
-        Digital-Multimeter (ab ~7 €). Optional: der 3D-gedruckte Batterie-Reihen-Halter (siehe unten).</p>
-        <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung. Multimeter vorher auf „V⎓" stellen.</p>
+        <span class="stnum">STATION</span> <span class="tag a">Physik · E-Technik</span>
+        <h3>Die Spannungs-Messung (Reihenschaltung)</h3>
+        <p>In einer <strong>Reihenschaltung addieren sich die Spannungen</strong>. Die Kinder verbinden
+        zwei 1,5-V-Batterien richtig hintereinander (Plus an Minus) und messen mit dem
+        <strong>Multimeter</strong> (Stellung „V⎓").</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Multimeter zeigt ~<strong>3 V</strong>
+        (2 × 1,5 V) → <span class="digit">3</span>. Parallel gebaut bleibt's bei ~1,5 V. (4 Batterien
+        ≈ 6 V → <span class="digit">6</span>, 9-V-Block → <span class="digit">9</span>.)</div>
+        <p><strong>Material:</strong> 2–4× AA + Halter, Krokoklemmen, einfaches Multimeter (ab ~7 €).</p>
+        <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-          <a href="https://sciencewithkids.com/Experiments/Energy-Electricity-Experiments/how-to-make-a-simple-battery.html">Science with Kids – Batterie &amp; Multimeter</a> ·
-          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Energy_p011/energy-power/batteries-the-shocking-truth">Science Buddies – Batteries</a>.</div>
+          <a href="https://sciencewithkids.com/Experiments/Energy-Electricity-Experiments/how-to-make-a-simple-battery.html">Science with Kids</a> ·
+          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Energy_p011/energy-power/batteries-the-shocking-truth">Science Buddies</a>.</div>
       </div>
 
       <div class="station">
-        <span class="tag a">Physik · Dichte</span>
-        <h3>Station 4 – Der Dichte-Turm</h3>
-        <p>Schichten unterschiedlicher Dichte in ein hohes Glas: Honig → Spülmittel → gefärbtes
-        Wasser → Öl. Feste Objekte <strong>bleiben in der Schicht liegen, deren Dichte zu ihnen passt</strong>.</p>
-        <div class="option">
-          <b>Variante A – Zählen (Standard):</b> Fünf kleine Objekte (Weintraube, Kirschtomate, Korken,
-          Plastikperle, Metallmutter) hineinwerfen. Einige bleiben genau auf der <strong>Wasserschicht</strong> liegen.
-          <div class="logic" style="margin:6px 0 0">🧠 <strong>Ziffer:</strong> So viele Objekte auf der
-          Wasserschicht liegen → hier <span class="digit">1</span>. (Objekt-Set passend wählen.)</div>
-        </div>
-        <div class="option">
-          <b>Variante B – Ablesen an nummerierten Schichten:</b> Zahlenstreifen neben das Glas kleben,
-          nur <strong>ein</strong> geeichter „Forscher-Kristall" wird eingeworfen.
-          <div class="logic" style="margin:6px 0 0">🧠 <strong>Ziffer:</strong> Die Nummer der Schicht,
-          in der die Perle liegen bleibt. Frei einstellbar.</div>
-        </div>
-        <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Speiseöl, Lebensmittelfarbe,
-        Test-Objekte bzw. geeichte Perle + Zahlenstreifen.</p>
+        <span class="stnum">STATION</span> <span class="tag a">Physik · Dichte</span>
+        <h3>Der Dichte-Turm</h3>
+        <p>Schichten: Honig → Spülmittel → gefärbtes Wasser → Öl. Feste Objekte bleiben in der Schicht
+        liegen, deren Dichte zu ihnen passt.</p>
+        <div class="option"><b>A – Zählen:</b> Fünf Objekte hineinwerfen; einige bleiben auf der
+        Wasserschicht liegen.</div>
+        <div class="option"><b>B – Nummerierte Schichten:</b> Zahlenstreifen ans Glas; eine geeichte Perle
+        bleibt in einer Schicht → deren Nummer.</div>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> So viele Objekte auf der Wasserschicht →
+        <span class="digit">1</span>.</div>
+        <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Öl, Lebensmittelfarbe, Test-Objekte.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-          <a href="https://stevespangler.com/experiments/seven-layer-density-column/">Steve Spangler – Seven-Layer Density Column</a> ·
-          <a href="https://stao.ca/seven-layer-density-column/">STAO</a> ·
-          <a href="https://www.csub.edu/chemistry/_files/Density_Column.pdf">CSU Bakersfield (PDF)</a>.
-          Belegt ist das Schweben nach Dichte; die Zähl-/Ablese-Logik ist die Ergänzung.</div>
+          <a href="https://stevespangler.com/experiments/seven-layer-density-column/">Steve Spangler – Density Column</a> ·
+          <a href="https://stao.ca/seven-layer-density-column/">STAO</a>. Belegt ist das Schweben nach
+          Dichte; die Zähl-Logik ist die Ergänzung.</div>
       </div>
 
       <div class="station">
-        <span class="tag">Biologie · Forensik</span>
-        <h3>Station 5 – Das Detektivlabor (Fundort)</h3>
-        <p>Fingerabdrücke nehmen (Bleistift-Abrieb, mit Klebefilm abheben) und mit den vier
-        „Verdächtigen-Karten" vergleichen: <strong>Schleife, Wirbel, Bogen</strong>.</p>
-        <div class="signal">🎯 <strong>Ergebnis:</strong> Genau ein Muster passt zum Abdruck an der Truhe.</div>
-        <div class="logic">🧠 <strong>So entsteht der Hinweis:</strong> Die passende Karte trägt hinten
-        den <strong>Fundort</strong> (z. B. „hinter dem grünen Vorhang"). Keine Ziffer, sondern das
-        <em>Wo</em> – der Abschluss vor dem Finale.</div>
+        <span class="stnum">STATION</span> <span class="tag">Biologie · Forensik</span>
+        <h3>Das Detektivlabor</h3>
+        <p>Fingerabdrücke nehmen (Bleistift-Abrieb, mit Klebefilm abheben) und mit
+        <strong>nummerierten Verdächtigen-Karten</strong> vergleichen: Schleife, Wirbel, Bogen.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Genau ein Muster passt → die Nummer der
+        überführten Verdächtigen-Karte ist die Ziffer, hier <span class="digit">4</span>. Bonus: Die Karte
+        verrät hinten zusätzlich den <strong>Fundort der Truhe</strong>.</div>
         <p><strong>Material:</strong> weiche Bleistifte, Klebefilm, weißes Papier, Lupen,
-        4 Verdächtigen-Karten mit Musterproben.</p>
+        nummerierte Verdächtigen-Karten mit Musterproben.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
           <a href="https://www.scienceworld.ca/resource/fingerprint-fun/">Science World – Fingerprint Fun</a> ·
-          <a href="https://learning-center.homesciencetools.com/article/forensic-fingerprints-activity/">Home Science Tools – Forensic Fingerprints</a>
+          <a href="https://learning-center.homesciencetools.com/article/forensic-fingerprints-activity/">Home Science Tools</a>
           (Schleife ~60–65 %, Wirbel ~30–35 %, Bogen ~5 %).</div>
       </div>
 
-    </div>
-
-    <h2>🔐 Code zusammensetzen</h2>
-    <p>Am Ende tragen die Kinder ihre vier gemessenen Ziffern in die richtige Reihenfolge ein
-    (Station 5 liefert den Fundort):</p>
-    <table>
-      <tr><th>Schloss-Stelle</th><th>Station</th><th>Woran abgelesen</th><th>Ziffer</th></tr>
-      <tr><td>1.</td><td>1 – pH-Geheimtrank</td><td>Farbe → pH-Skala</td><td><span class="digit">2</span></td></tr>
-      <tr><td>2.</td><td>2 – Geheimschrift</td><td>enthüllte Zahl</td><td><span class="digit">5</span></td></tr>
-      <tr><td>3.</td><td>3 – Spannungs-Messung</td><td>Volt am Multimeter</td><td><span class="digit">3</span></td></tr>
-      <tr><td>4.</td><td>4 – Dichte-Turm</td><td>Anzahl auf Wasserschicht</td><td><span class="digit">1</span></td></tr>
-    </table>
-
-    <h2>🌋 Finale – „Der große Ausbruch"</h2>
-    <p><strong>Warum jetzt?</strong> Der geöffneten Truhe entnehmen die Kinder den <strong>Aktivator</strong>
-    (in echt: die aktivierte Trockenhefe) und geben ihn in die vorbereitete „Superformel" – der
-    dramaturgische Höhepunkt: Die Formel ist komplett und zündet sichtbar.</p>
-    <p><strong>Elefantenzahnpasta light</strong> in einer Wanne oder auf einem Backblech – funktioniert
-    <strong>drinnen wie draußen</strong>: Trockenhefe in warmem Wasser aktivieren, in eine Flasche mit
-    Spülmittel, Lebensmittelfarbe und <strong>3 %igem Wasserstoffperoxid</strong> geben → dicker,
-    warmer Schaum quillt heraus.</p>
-    <div class="warn">
-      ⚠️ <strong>Sicherheit:</strong> Strikt bei <strong>3 % H₂O₂ aus der Drogerie/Apotheke</strong>
-      bleiben. Höherprozentiges (&gt;12 %) ist reizend/ätzend und unnötig. Schutzbrillen auf.
-    </div>
-    <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-      <a href="https://www.sciencebuddies.org/stem-activities/elephant-toothpaste">Science Buddies – Elephant Toothpaste</a> ·
-      <a href="https://www.rigb.org/families/experimental/elephants-toothpaste">Royal Institution – Elephant's toothpaste</a>.</div>
-
-    <h2>🧭 Ideen-Pool: weitere Stationen (zur Auswahl mit Mela)</h2>
-    <p class="intro">Mehr echte Physik zum Aussortieren – Detektiv/Forensik lässt sich damit gut gegen
-    „mehr Wissenschaft" tauschen. Jede Station zeigt <strong>beispielhaft</strong>, wie eine Ziffer
-    entstehen könnte; welche wir für den Code nehmen, entscheiden wir später.
-    <br><strong>Zusatzmaterial je nach Auswahl:</strong> Flummis, kleiner Laserpointer (≤ Klasse 2),
-    Taschenspiegel, Schnur + Muttern (Pendel/Waage), Lineal, alte CD, Kleiderbügel + Becher.</p>
-    <div class="grid">
-
-      <div class="station pool">
-        <span class="tag">Physik · Mechanik</span>
-        <h3>Pool A – Das Pendel-Chronometer</h3>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Physik · Mechanik</span>
+        <h3>Das Pendel-Chronometer</h3>
         <p>Ein Pendel schwingt immer im gleichen Takt – <strong>nur die Länge bestimmt die Periode</strong>
-        (T = 2π·√(L/g)). Die Kinder bauen ein Pendel vorgegebener Länge und zählen die Schwünge in einer
-        festen Zeit.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> Länge ~25 cm → Periode ≈ 1 s. „Zählt die
-        vollen Schwünge in 10 Sekunden" → ≈ <span class="digit">8</span> (leichte Dämpfung). Über die
-        Pendellänge lässt sich die Zielzahl einstellen.</div>
-        <div class="boost">📱 <b>Digital-Boost:</b> Präzise Stoppuhr-Web-App (baubar) oder die
-        <a href="https://phyphox.org/">Phyphox</a>-App, die die Pendel-Periode direkt über den
-        Beschleunigungssensor misst – genauer als Zählen von Hand.</div>
-        <p><strong>Material:</strong> Schnur, Mutter/Gewicht als Pendelkörper, Maßband, Stoppuhr/Handy.</p>
+        (T = 2π·√(L/g)). Kinder bauen ein Pendel vorgegebener Länge und zählen die Schwünge in fester Zeit.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Länge ~25 cm → Periode ≈ 1 s → „Schwünge in
+        10 Sekunden" ≈ <span class="digit">8</span>. Über die Länge einstellbar.</div>
+        <div class="boost">📱 <b>Digital-Boost:</b> Präzise Stoppuhr-Web-App (baubar) oder
+        <a href="https://phyphox.org/">Phyphox</a> (misst die Periode über den Sensor).</div>
+        <p><strong>Material:</strong> Schnur, Mutter/Gewicht, Maßband, Stoppuhr/Handy.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Phys_p016/physics/pendulum-motion">Science Buddies – Pendulum Motion</a> ·
-          <a href="https://spark.iop.org/investigating-time-oscillation-pendulum">IOP – Oscillation of a Pendulum</a>.</div>
+          <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Phys_p016/physics/pendulum-motion">Science Buddies – Pendulum</a> ·
+          <a href="https://spark.iop.org/investigating-time-oscillation-pendulum">IOP</a>.</div>
       </div>
 
-      <div class="station pool">
-        <span class="tag">Physik · Energie</span>
-        <h3>Pool B – Der Flummi-Sprungturm</h3>
-        <p>Flummi aus fester Höhe (z. B. 100 cm) fallen lassen und die <strong>Rücksprunghöhe</strong> an
-        einer Wandskala ablesen. Die „Sprungkraft" (Restitution) ist √(h/H) – jeder Ball springt anders hoch.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> Der vorbereitete Flummi springt von
-        100 cm auf ~70 cm zurück → Zehnerstelle <span class="digit">7</span>. (Alternativ: Sprünge bis
-        zum Stillstand zählen.)</div>
-        <div class="boost">📱 <b>Digital-Boost (echter Mehrwert):</b> Mit der Handy-<strong>Zeitlupe</strong>
-        den Sprung filmen und den höchsten Punkt einfrieren – die Höhe ist so viel genauer ablesbar als
-        mit bloßem Auge.</div>
-        <p><strong>Material:</strong> Flummi(s), Maßband/Zollstock an der Wand, glatter Boden.</p>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Physik · Energie</span>
+        <h3>Der Flummi-Sprungturm</h3>
+        <p>Flummi aus fester Höhe (z. B. 100 cm) fallen lassen, <strong>Rücksprunghöhe</strong> an einer
+        Wandskala ablesen (Sprungkraft = √(h/H)).</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Rücksprung ~70 cm → Zehnerstelle
+        <span class="digit">7</span>. (Alternativ: Sprünge bis zum Stillstand zählen.)</div>
+        <div class="boost">📱 <b>Digital-Boost (echter Mehrwert):</b> Handy-<strong>Zeitlupe</strong> filmt
+        den Sprung und friert den höchsten Punkt ein – viel genauer ablesbar.</div>
+        <p><strong>Material:</strong> Flummi(s), Maßband/Zollstock an der Wand.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-          <a href="https://www.teachengineering.org/activities/view/ucla_superball_activity1">TeachEngineering – How High Can a Super Ball Bounce?</a> ·
-          <a href="https://hypertextbook.com/facts/2006/restitution.shtml">Physics Factbook – Coefficients of Restitution</a>.</div>
+          <a href="https://www.teachengineering.org/activities/view/ucla_superball_activity1">TeachEngineering – Super Ball</a> ·
+          <a href="https://hypertextbook.com/facts/2006/restitution.shtml">Physics Factbook</a>.</div>
       </div>
 
-      <div class="station pool">
-        <span class="tag">Optik · Licht</span>
-        <h3>Pool C – Das Laser-Spiegel-Labyrinth</h3>
-        <p>Mit Laserpointer und kleinen Spiegeln den Strahl per <strong>Reflexionsgesetz</strong>
-        (Einfallswinkel = Ausfallswinkel) um Ecken lenken, bis er ein Ziel trifft. Den Strahl mit etwas
-        Kreidestaub oder Wassernebel sichtbar machen.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> Am Ende stehen mehrere nummerierte Felder;
-        nur bei richtiger Spiegelstellung trifft der Strahl das eine Feld → dessen Zahl ist die Ziffer.
-        (Oder: Anzahl der nötigen Spiegel = Ziffer.) Mit dem <strong>Kreuzlinienlaser</strong> lässt sich
-        die Kreuzlinie über eine Vorlage legen, um eine verdeckte Zahl auszurichten.</div>
-        <div class="warn">⚠️ <strong>Laser-Sicherheit:</strong> nur Laser ≤ Klasse 2 (&lt; 1 mW), nie in
-        die Augen, immer unter Aufsicht; Spiegel flach halten.</div>
-        <p><strong>Material:</strong> Laserpointer/Kreuzlinienlaser, 3–4 Taschenspiegel, Knete als
-        Spiegelhalter, nummerierte Zielfelder.</p>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Optik · Licht</span>
+        <h3>Das Laser-Spiegel-Labyrinth</h3>
+        <p>Mit Laserpointer + kleinen Spiegeln den Strahl per <strong>Reflexionsgesetz</strong> um Ecken
+        lenken, bis er ein Ziel trifft. Strahl mit Kreidestaub/Wassernebel sichtbar machen.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Mehrere nummerierte Zielfelder; nur bei
+        richtiger Spiegelstellung trifft der Strahl das eine Feld → dessen Zahl <span class="digit">6</span>.
+        (Oder Anzahl nötiger Spiegel.) Kreuzlinienlaser: Kreuz über eine Vorlage legen.</div>
+        <div class="warn">⚠️ <strong>Laser-Sicherheit:</strong> nur ≤ Klasse 2 (&lt; 1 mW), nie in die
+        Augen, Aufsicht.</div>
+        <p><strong>Material:</strong> Laserpointer/Kreuzlinienlaser, 3–4 Taschenspiegel, Knete, Zielfelder.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
-          <a href="https://www.asme.org/topics-resources/content/laser-experiments-to-share-with-your-kids">ASME – Laser Experiments for Kids</a> ·
-          <a href="https://study.com/academy/lesson/reflection-refraction-activities.html">Study.com – Reflection &amp; Refraction Activities</a>.</div>
+          <a href="https://www.asme.org/topics-resources/content/laser-experiments-to-share-with-your-kids">ASME – Laser Experiments</a> ·
+          <a href="https://study.com/academy/lesson/reflection-refraction-activities.html">Study.com</a>.</div>
       </div>
 
-      <div class="station pool">
-        <span class="tag">Optik · Farben</span>
-        <h3>Pool D – Das CD-Spektroskop</h3>
-        <p>Aus Klorolle + einem Stück <strong>CD</strong> ein Spektroskop bauen. Die feinen CD-Rillen
-        wirken als Beugungsgitter und zerlegen Licht in einen Regenbogen. Verschiedene Lampen zeigen
-        verschiedene Spektren: Glühbirne = durchgehender Regenbogen, Energiespar/LED = einzelne Linien.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> „Zählt die hellen Farbstreifen der
-        Speziallampe" → Anzahl = Ziffer. Oder: welche von mehreren nummerierten Lampen zeigt <em>Linien</em>
-        statt eines durchgehenden Bandes → deren Nummer.</div>
-        <p><strong>Material:</strong> Küchenrolle/Papprolle, alte CD/DVD, Klebeband, Schere,
-        verschiedene Lampen (Glühbirne, LED, Energiesparlampe).</p>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Optik · Farben</span>
+        <h3>Das CD-Spektroskop</h3>
+        <p>Aus Papprolle + einem Stück <strong>CD</strong> ein Spektroskop bauen: Die CD-Rillen wirken als
+        Beugungsgitter und zerlegen Licht in Farben. Glühbirne = durchgehender Regenbogen, LED = einzelne
+        Linien.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> „Zählt die hellen Farbstreifen der Speziallampe"
+        → <span class="digit">3</span>. Oder: welche nummerierte Lampe zeigt Linien statt Band.</div>
+        <p><strong>Material:</strong> Papprolle, alte CD/DVD, Klebeband, Schere, verschiedene Lampen.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
           <a href="https://www.exploratorium.edu/explore/science/activity/reflecting-rainbows">Exploratorium – Rainbows from CDs</a> ·
-          <a href="https://www.steampoweredfamily.com/spectroscope-rainbow-science/">STEAM Powered Family – Spectroscope</a>.</div>
+          <a href="https://www.steampoweredfamily.com/spectroscope-rainbow-science/">STEAM Powered Family</a>.</div>
       </div>
 
-      <div class="station pool">
-        <span class="tag">Physik · freier Fall</span>
-        <h3>Pool E – Der Reaktions-Blitz</h3>
-        <p>Ein Partner lässt ein Lineal fallen, das Kind fängt es so schnell wie möglich. Die
-        <strong>Fallstrecke in cm</strong> ist ein Maß für die Reaktionszeit (t = √(2d/981)). 3× messen,
-        Mittelwert bilden.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> An passenden cm-Marken des Lineals stehen
-        Zahlen; die gefangene Marke liefert die Ziffer. (Physik-Referenz: ~5 cm ≈ 100 ms, ~20 cm ≈ 200 ms.)</div>
-        <div class="boost">📱 <b>Digital-Boost (echter Mehrwert):</b> Ein <strong>Reaktionszeit-Tester</strong>
-        als Web-App (baubar): Der Bildschirm blitzt zufällig, man tippt so schnell wie möglich, die App
-        zeigt die Millisekunden an – präziser als das Lineal und liefert direkt eine Zahl.</div>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Physik · freier Fall</span>
+        <h3>Der Reaktions-Blitz</h3>
+        <p>Ein Partner lässt ein Lineal fallen, das Kind fängt es. Die <strong>Fallstrecke in cm</strong>
+        ist ein Maß für die Reaktionszeit (t = √(2d/981)). 3× messen, Mittelwert.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> An passenden cm-Marken stehen Zahlen; die
+        gefangene Marke liefert die Ziffer <span class="digit">2</span>. (~5 cm ≈ 100 ms, ~20 cm ≈ 200 ms.)</div>
+        <div class="boost">📱 <b>Digital-Boost:</b> <strong>Reaktionszeit-Tester</strong> als Web-App (baubar):
+        Bildschirm blitzt zufällig, man tippt so schnell wie möglich → Millisekunden direkt.</div>
         <p><strong>Material:</strong> Lineal/Zollstock (30–50 cm), Tisch, optional Handy.</p>
         <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
           <a href="https://www.scienceworld.ca/resource/reaction-time-ruler/">Science World – Reaction Time Ruler</a> ·
-          <a href="https://study.com/academy/lesson/ruler-drop-test-for-reaction-time.html">Study.com – Ruler Drop Test</a>.</div>
+          <a href="https://study.com/academy/lesson/ruler-drop-test-for-reaction-time.html">Study.com</a>.</div>
       </div>
 
-      <div class="station pool">
-        <span class="tag">Physik · Hebel</span>
-        <h3>Pool F – Die Gleichgewichts-Waage</h3>
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag">Physik · Hebel</span>
+        <h3>Die Gleichgewichts-Waage</h3>
         <p>Eine einfache Balkenwaage (Kleiderbügel + zwei Becher) zeigt das <strong>Hebelgesetz</strong>.
         Die Kinder finden heraus, wie viele gleiche Muttern/Münzen das „Geheimgewicht" ausbalancieren.</p>
-        <div class="logic">🧠 <strong>Beispiel-Ziffer:</strong> Das Mystery-Objekt wird von genau
-        <span class="digit">4</span> Muttern ausgeglichen → die Anzahl ist die Ziffer. (Über das Gewicht
-        des Objekts frei einstellbar.)</div>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Das Mystery-Objekt wird von genau
+        <span class="digit">4</span> Muttern ausgeglichen → die Anzahl ist die Ziffer.</div>
         <p><strong>Material:</strong> Kleiderbügel, Schnur, 2 gleiche Becher, viele gleiche Muttern/Münzen,
         ein „Geheimgewicht".</p>
-        <div class="refs">🔎 <strong>Prinzip:</strong> klassisches Hebelgesetz (Drehmoment = Kraft × Abstand);
-        eine ausgeglichene Waage bedeutet gleiche Drehmomente auf beiden Seiten.</div>
+        <div class="refs">🔎 <strong>Prinzip:</strong> Hebelgesetz (Drehmoment = Kraft × Abstand);
+        ausgeglichen = gleiche Drehmomente auf beiden Seiten.</div>
+      </div>
+
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag a">Technik · Statik</span>
+        <h3>Die Lego-Brücke</h3>
+        <p>Baut aus Legosteinen eine Brücke über eine Lücke (z. B. zwischen zwei Bücherstapeln), die
+        <strong>möglichst viel trägt</strong> – wie echte Ingenieure: bauen, testen, verbessern.</p>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> „Wie viele gleiche Gewichte (Bücher/Münzrollen)
+        hält die Brücke, bevor sie durchbricht?" → <span class="digit">9</span>. Über die Bauvorgabe (Spannweite,
+        Steinzahl) einstellbar.</div>
+        <p><strong>Material:</strong> viele Legosteine, 2 Bücherstapel als Auflager, gleiche Gewichte
+        (Bücher, Münzrollen), evtl. Spielzeugauto zum Testen.</p>
+        <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
+          <a href="https://littlebinsforlittlehands.com/lego-activities-steam-challenges-kids/">Little Bins – LEGO STEM Challenges</a> ·
+          <a href="https://frugalfun4boys.com/lego-bridge-building-challenge/">Frugal Fun – LEGO Bridge Challenge</a>.</div>
+      </div>
+
+      <div class="station">
+        <span class="stnum">STATION</span> <span class="tag a">Technik · Mathe</span>
+        <h3>Der Lego-Baumeister</h3>
+        <p>Bau- und Zähl-Aufgaben mit Legosteinen – wenig Aufwand, viel Auswahl. Zwei Ideen:</p>
+        <div class="option"><b>A – Turm-Challenge:</b> „Baut mit genau 20 Steinen den höchsten Turm, der
+        von allein stehen bleibt." (Statik &amp; Balance.)</div>
+        <div class="option"><b>B – Sortier- &amp; Zähl-Aufgabe:</b> Einen Beutel Steine nach Farbe sortieren;
+        die Anzahl einer Zielfarbe ist die Zahl.</div>
+        <div class="logic">🧠 <strong>Beispiel-Zahl:</strong> Anzahl der roten Steine im Beutel →
+        <span class="digit">5</span>. (Beutel vorher passend bestücken.)</div>
+        <p><strong>Material:</strong> Legosteine (nach Farbe gemischt), Grundplatte, Sortierschalen.</p>
+        <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
+          <a href="https://littlebinsforlittlehands.com/build-lego-numbers-math-activity/">Little Bins – Build LEGO Numbers</a> ·
+          <a href="https://www.weareteachers.com/lego-math/">We Are Teachers – LEGO Math</a>.</div>
       </div>
 
     </div>
 
+    <h2>🔐 Auswahl &amp; Code</h2>
+    <p>So kommt ihr von den Stationen zum Schloss-Code:</p>
+    <ol>
+      <li><strong>Auswählen:</strong> Aus dem Pool die Stationen streichen, bis eure Wunsch-Anzahl übrig
+      ist (für 2 Std. sind ~5 realistisch).</li>
+      <li><strong>Reihenfolge festlegen:</strong> Die Zahlen der gewählten Stationen ergeben in dieser
+      Reihenfolge den Code.</li>
+      <li><strong>Schloss anpassen:</strong> 4 Ziffern → normales 4-stelliges Zahlenschloss; mehr Ziffern
+      → Schloss mit mehr Rädern, zwei Schlösser hintereinander, <em>oder</em> das digitale
+      <strong>Akademie-Terminal</strong> (nimmt jede Länge, siehe unten).</li>
+    </ol>
+    <p class="lead"><strong>Beispiel-Auswahl (4 Stationen):</strong> pH → <span class="digit">2</span>,
+    Geheimschrift → <span class="digit">5</span>, Spannung → <span class="digit">3</span>,
+    Dichte → <span class="digit">1</span> ⟶ Code <strong>2 5 3 1</strong>. Der Fundort kommt aus dem
+    Detektivlabor (oder wird auf die letzte Stations-Karte gedruckt).</p>
+
+    <h2>🌋 Finale – „Der große Ausbruch"</h2>
+    <p><strong>Warum jetzt?</strong> Aus der geöffneten Truhe nehmen die Kinder den <strong>Aktivator</strong>
+    (aktivierte Trockenhefe) und geben ihn in die vorbereitete „Superformel" – der Höhepunkt: Die Formel
+    ist komplett und zündet sichtbar.</p>
+    <p><strong>Elefantenzahnpasta light</strong> in einer Wanne/auf einem Backblech (drinnen wie draußen):
+    Trockenhefe in warmem Wasser aktivieren, in eine Flasche mit Spülmittel, Lebensmittelfarbe und
+    <strong>3 % Wasserstoffperoxid</strong> geben → dicker, warmer Schaum quillt heraus.</p>
+    <div class="warn">
+      ⚠️ <strong>Sicherheit:</strong> Strikt bei <strong>3 % H₂O₂ aus der Drogerie/Apotheke</strong> bleiben.
+      Höherprozentiges (&gt;12 %) ist reizend/ätzend und unnötig. Schutzbrillen auf.
+    </div>
+    <div class="refs">🔎 <strong>Quelle &amp; Weiterlesen:</strong>
+      <a href="https://www.sciencebuddies.org/stem-activities/elephant-toothpaste">Science Buddies – Elephant Toothpaste</a> ·
+      <a href="https://www.rigb.org/families/experimental/elephants-toothpaste">Royal Institution</a>.</div>
+
     <h2>📱 Digitale Helfer &amp; Vibe-Coding-Ideen</h2>
-    <p class="intro"><strong>Grundsatz:</strong> Die Kinder sollen vor allem <em>offline</em> forschen.
-    Das Handy kommt nur dort dazu, wo es etwas ermöglicht, das offline nicht (oder kaum) geht – präzise
-    Zeit, Schallpegel, Neigungssensor, Zeitlupe. Da „Vibe-Coding" kleine Web-Apps sehr schnell macht,
-    kann ich passende Mini-Seiten direkt in diese GitHub-Pages-Site legen.</p>
+    <p class="intro"><strong>Grundsatz:</strong> Vor allem <em>offline</em> forschen. Das Handy nur dort,
+    wo es etwas ermöglicht, das offline nicht (oder kaum) geht – präzise Zeit, Schallpegel, Neigungssensor,
+    Zeitlupe. Passende Mini-Web-Apps kann ich direkt in diese GitHub-Pages-Site legen.</p>
     <div class="grid">
-      <div class="station pool">
+      <div class="station digital">
         <span class="tag">Verbesserung</span>
-        <h3>Sinnvolle App-Ergänzungen (zu Offline-Stationen)</h3>
+        <h3>Sinnvolle App-Ergänzungen</h3>
         <ul>
-          <li><strong>Präzisions-Stoppuhr / Rundenzähler</strong> – für Pendel &amp; Flummi (genaue Zeit statt Zählen im Kopf).</li>
-          <li><strong>Reaktionszeit-Tester</strong> – Blitz → Tippen → Millisekunden (Pool E, digitale Variante).</li>
-          <li><strong><a href="https://phyphox.org/">Phyphox</a></strong> (fertige App, kein Coding) – Pendel-Periode, Schallgeschwindigkeit, Beschleunigung über die Handy-Sensoren.</li>
+          <li><strong>Präzisions-Stoppuhr / Rundenzähler</strong> – für Pendel &amp; Flummi.</li>
+          <li><strong>Reaktionszeit-Tester</strong> – Blitz → Tippen → Millisekunden.</li>
+          <li><strong><a href="https://phyphox.org/">Phyphox</a></strong> (fertige App) – Pendel, Schall,
+          Beschleunigung über die Handy-Sensoren.</li>
         </ul>
       </div>
-      <div class="station pool">
+      <div class="station digital">
         <span class="tag">Nur digital möglich</span>
-        <h3>Stationen, die es <em>nur</em> mit Handy/Web gibt</h3>
+        <h3>Stationen, die es <em>nur</em> digital gibt</h3>
         <ul>
-          <li><strong>Akademie-Terminal (Code-Eingabe):</strong> Seite, in die die Kinder die vier
-          gefundenen Ziffern eintippen. Nur der richtige Code startet einen Countdown + „Reaktor-Zündung"
-          (Animation/Sound) direkt vor dem Finale – bindet alle Stationen zusammen.</li>
-          <li><strong>Schallpegel-Tresor:</strong> nutzt das Mikrofon – die Anzeige „öffnet", wenn es leise
-          genug ist (oder ein lauter „Zauberspruch" gebrüllt wird). Mikrofon-Zugriff geht nur digital.</li>
-          <li><strong>Neige-Labyrinth:</strong> Handy kippen (Lagesensor), eine Kugel durch ein Labyrinth
-          zu einer Zahl steuern – Gyroskop, offline unmöglich.</li>
+          <li><strong>Akademie-Terminal (Code-Eingabe):</strong> Kinder tippen die gefundenen Zahlen ein;
+          nur der richtige Code startet Countdown + „Reaktor-Zündung" – nimmt <em>jede</em> Code-Länge.</li>
+          <li><strong>Schallpegel-Tresor:</strong> nutzt das Mikrofon – „öffnet" bei Stille oder lautem Ruf.</li>
+          <li><strong>Neige-Labyrinth:</strong> Handy kippen (Lagesensor), Kugel zu einer Zahl steuern.</li>
         </ul>
-        <div class="boost">📱 <b>Angebot:</b> Sag Bescheid, dann baue ich 1–2 davon (z. B. das
-        <strong>Akademie-Terminal</strong> und den <strong>Reaktionszeit-Tester</strong>) als Extra-Seiten
-        in diese Site – über GitHub Pages sofort auf jedem Handy aufrufbar.</div>
+        <div class="boost">📱 <b>Angebot:</b> Sag Bescheid, dann baue ich 1–2 davon (z. B.
+        <strong>Akademie-Terminal</strong> + <strong>Reaktionszeit-Tester</strong>) als Extra-Seiten – über
+        GitHub Pages sofort auf jedem Handy.</div>
       </div>
     </div>
 
     <h2>🖨️ 3D-Druck – OpenSCAD</h2>
-    <h3>1) Batterie-Reihen-Halter (Station 3)</h3>
-    <p class="lead">Hält zwei AA-Zellen sauber hintereinander; die Krokoklemmen greifen an den Enden ab.</p>
+    <h3>1) Batterie-Reihen-Halter (Spannungs-Station)</h3>
 <pre><code>// Batterie-Reihen-Halter fuer 2x AA (mm)
 aa_d   = 14.5;   // AA-Durchmesser
 aa_l   = 50.5;   // AA-Laenge
 wall   = 3;
-gap    = 6;      // Zugang fuer Krokoklemme zwischen/aussen
+gap    = 6;      // Zugang fuer Krokoklemme
 len    = 2*aa_l + 3*gap;
 $fn = 64;
 
@@ -527,7 +511,7 @@ difference() {
       <tr><td>Rotkohl / Rotkohlsaft</td><td>Supermarkt</td><td>1–2 €</td></tr>
       <tr><td>Natron + Zitronensäure</td><td>dm / Rossmann</td><td>3–4 €</td></tr>
       <tr><td>Wasserfarbe + Pinsel, weißer Wachsmalstift</td><td>dm / Schreibwaren</td><td>4–8 €</td></tr>
-      <tr><td>Dunkler Traubensaft (Station 2 B)</td><td>Supermarkt</td><td>1–2 €</td></tr>
+      <tr><td>Dunkler Traubensaft</td><td>Supermarkt</td><td>1–2 €</td></tr>
       <tr><td>Digital-Multimeter (einfach)</td><td>Baumarkt / Amazon</td><td>7–12 €</td></tr>
       <tr><td>AA-Batterien + Halter, Krokoklemmen</td><td>Baumarkt / Amazon</td><td>5–8 €</td></tr>
       <tr><td>Wasserstoffperoxid 3 %</td><td>Apotheke / dm</td><td>2–4 €</td></tr>
@@ -536,13 +520,13 @@ difference() {
       <tr><td>Kinder-Schutzbrillen (4×)</td><td>Amazon / Baumarkt</td><td>8–12 €</td></tr>
       <tr><td>4-stelliges Zahlen-Vorhängeschloss</td><td>Baumarkt / Amazon</td><td>6–8 €</td></tr>
       <tr><td>Kinder-Laborkittel (4×, o. weiße Hemden)</td><td>Amazon / Sozialkaufhaus</td><td>0–48 €</td></tr>
-      <tr><td>Ideen-Pool (Flummis, Spiegel, Schnur, CD …)</td><td>meist im Haus / Baumarkt</td><td>0–10 €</td></tr>
+      <tr><td>Pool-Zusatz (Flummis, Spiegel, Schnur, CD, Lego …)</td><td>meist im Haus / Baumarkt</td><td>0–10 €</td></tr>
     </table>
     <p class="lead"><strong>Realistische Zusatzkosten: ~45–75 €</strong> (je nach Stationsauswahl).</p>
 
     <h2>🪪 Forscher-Ausweise</h2>
     <p class="lead">Auf festes Papier (250–300 g/m²), laminieren, Loch + Kordel zum Umhängen. Das große
-    Feld ist für ein <strong>Foto</strong> gedacht – Bild aufkleben oder vor dem Druck einfügen.</p>
+    Feld ist für ein <strong>Foto</strong> gedacht.</p>
     <div id="ausweise">
       <div class="badges">
 
