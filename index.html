@@ -36,6 +36,7 @@
   .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;
     letter-spacing:.5px;color:#fff;background:var(--accent2);padding:3px 8px;border-radius:20px}
   .signal{background:#fff8e6;border:1px solid #f4d98a;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.95rem}
+  .logic{background:#eef3ff;border:1px solid #b9caf6;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.95rem}
   .digit{display:inline-block;min-width:26px;text-align:center;background:var(--accent);color:#fff;
     font-weight:800;border-radius:8px;padding:1px 8px;margin:0 2px}
   table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.95rem}
@@ -49,6 +50,10 @@
   li{margin:3px 0}
   .code-hint{background:#eafaf7;border:1px solid #a9e5db;border-radius:10px;padding:10px 14px;font-size:.95rem}
   .bigcode{font-size:1.5rem;font-weight:800;letter-spacing:6px;color:var(--accent2)}
+  /* pH-Skala */
+  .ph-scale{display:flex;flex-wrap:wrap;gap:0;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+  .ph-scale div{flex:1 1 60px;text-align:center;padding:8px 4px;font-weight:800;color:#12163a;font-size:.9rem;min-width:56px}
+  .ph-scale small{display:block;font-weight:600;color:rgba(0,0,0,.55);font-size:.72rem}
   /* --- Ausweise --- */
   #ausweise .badges{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .badge{border:2px solid var(--accent);border-radius:16px;padding:14px;background:#fff;
@@ -102,83 +107,148 @@
     <h2>🧪 Die Geschichte</h2>
     <p>Dr. Neutrinos <strong>„Superformel"</strong> ist bei einem missglückten Experiment in
     Fragmente zerfallen. Die vier Kinder werden als Nachwuchs-Forscher in die Akademie aufgenommen –
-    mit Kittel, Ausweis und Forscher-Eid. An den Stationen sammeln sie <strong>Ziffern</strong>,
-    knacken damit den Code am Zahlenschloss der Forscher-Truhe und lösen zum Schluss den großen
-    Effekt aus.</p>
+    mit Kittel, Ausweis und Forscher-Eid. An vier Mess-Stationen <strong>ermitteln</strong> sie je
+    eine Ziffer, das Detektivlabor verrät den Fundort. Damit knacken sie den Code am Zahlenschloss
+    der Forscher-Truhe und lösen den großen Effekt aus.</p>
+
     <div class="code-hint">
-      <strong>Der Geheimcode:</strong> Vier Stationen liefern je eine Ziffer, das Detektivlabor
-      verrät den Fundort der Truhe. Der Code lautet
-      <span class="bigcode">2&nbsp;0&nbsp;1&nbsp;7</span><br>
-      (Station 1 → <span class="digit">2</span>, Station 2 → <span class="digit">0</span>,
-      Station 3 → <span class="digit">1</span>, Station 5 → <span class="digit">7</span>).
-      Stell diesen Code am Zahlenschloss der Truhe ein.
+      <strong>Wie entsteht der Code?</strong> Jede Ziffer wird <em>abgelesen oder gemessen</em> –
+      nicht geschenkt. Kein Kind kann sie vorher „wissen":
+      <ul>
+        <li><strong>Stelle 1</strong> – pH-Skala: die Trankfarbe zeigt auf einen pH-Wert → <span class="digit">2</span></li>
+        <li><strong>Stelle 2</strong> – enthüllte Wachszahl: die Farbe legt die Zahl frei → <span class="digit">4</span></li>
+        <li><strong>Stelle 3</strong> – Prüf-Panel: nur ein Kontakt lässt die LED leuchten → <span class="digit">1</span></li>
+        <li><strong>Stelle 4</strong> – Dichte-Turm: so viele Objekte bleiben auf der Wasserschicht → <span class="digit">3</span></li>
+      </ul>
+      Der Code lautet <span class="bigcode">2&nbsp;4&nbsp;1&nbsp;3</span> – das Detektivlabor sagt,
+      <strong>wo</strong> die Truhe mit diesem Schloss steht.
     </div>
 
     <h2>⏱️ Zeitplan (ca. 2 Stunden)</h2>
     <table class="timeline">
       <tr><td>0:00–0:15</td><td>Ankommen · Kittel &amp; Ausweise · Vereidigung · Story-Auftakt</td></tr>
-      <tr><td>0:15–0:30</td><td>Station 1 – Der Geheimtrank</td></tr>
-      <tr><td>0:30–0:45</td><td>Station 2 – Die Geheimbotschaft</td></tr>
-      <tr><td>0:45–1:00</td><td>Station 3 – Der Stromkreis-Test</td></tr>
+      <tr><td>0:15–0:30</td><td>Station 1 – Der pH-Geheimtrank</td></tr>
+      <tr><td>0:30–0:45</td><td>Station 2 – Die Wachs-Geheimschrift</td></tr>
+      <tr><td>0:45–1:00</td><td>Station 3 – Der Stromkreis-Detektiv</td></tr>
       <tr><td>1:00–1:15</td><td>Station 4 – Das Detektivlabor</td></tr>
       <tr><td>1:15–1:30</td><td>Station 5 – Der Dichte-Turm</td></tr>
-      <tr><td>1:30–1:45</td><td>Code knacken → Truhe öffnen → <strong>Finale-Effekt</strong></td></tr>
+      <tr><td>1:30–1:45</td><td>Code zusammensetzen → Truhe öffnen → <strong>Finale-Effekt</strong></td></tr>
       <tr><td>1:45–2:00</td><td>Kuchen · Puffer · Toben</td></tr>
     </table>
-    <p class="lead">Puffer ist Absicht. Wird's knapp, streichst du Station 5 und gibst die
-    Ziffer <span class="digit">7</span> als „Bonus" direkt aus.</p>
+    <p class="lead">Puffer ist Absicht. Wird's knapp, streichst du den Dichte-Turm und stellst die
+    Objekte fertig geschichtet hin – die Kinder zählen dann nur noch die Wasserschicht-Objekte
+    (Ziffer <span class="digit">3</span>).</p>
 
     <h2>🔭 Die fünf Stationen</h2>
     <div class="grid">
 
       <div class="station">
-        <span class="tag">Chemie</span>
-        <h3>Station 1 – Der Geheimtrank</h3>
-        <p>Rotkohlsaft als natürlicher pH-Indikator. Die Kinder tröpfeln Zitronensäure (→ pink/rot)
-        und Natronlösung (→ blau/grün) in Becher und mischen die „richtige Trankfarbe".</p>
-        <div class="signal">🎯 <strong>Signal:</strong> Wer die Zielfarbe trifft, erhält die Ziffer <span class="digit">2</span>.</div>
-        <p><strong>Material:</strong> Rotkohl/Rotkohlsaft, Natron, Zitronensäure, klare Becher, Pipetten.</p>
+        <span class="tag">Chemie · pH</span>
+        <h3>Station 1 – Der pH-Geheimtrank</h3>
+        <p>Rotkohlsaft ist ein natürlicher Farb-Indikator: Er zeigt je nach Säuregrad eine andere
+        Farbe. Auf einer <strong>nummerierten pH-Skala</strong> gehört zu jeder Farbe eine Zahl.
+        Die Kinder mischen den „Prüf-Trank" (Rotkohlsaft + etwas Zitronensäure) und vergleichen die
+        Farbe mit der Skala.</p>
+        <div class="ph-scale">
+          <div style="background:#e23d5a">2<small>rot</small></div>
+          <div style="background:#c14fa0">4<small>pink</small></div>
+          <div style="background:#8a5fd6">6<small>violett</small></div>
+          <div style="background:#6a76e0">7<small>blau-violett</small></div>
+          <div style="background:#3f8fe0">8<small>blau</small></div>
+          <div style="background:#3fae86">10<small>grün</small></div>
+          <div style="background:#c9c24a">12<small>gelb</small></div>
+        </div>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Der saure Trank färbt sich klar <strong>rot</strong>.</div>
+        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Rot steht auf der Skala bei
+        pH <span class="digit">2</span> → die abgelesene Zahl ist die Ziffer. Wer noch Natron
+        dazugibt, sieht die Farbe zu Blau/Grün „wandern" – zur Kontrolle, dass die Skala stimmt.</div>
+        <p><strong>Material:</strong> Rotkohl/Rotkohlsaft, Zitronensäure, Natron, klare Becher,
+        Pipetten, ausgedruckte pH-Skala (aus diesem Konzept).</p>
       </div>
 
       <div class="station">
-        <span class="tag">Chemie · Wärme</span>
-        <h3>Station 2 – Die Geheimbotschaft</h3>
-        <p>Mit Zitronensaft vorgeschriebene Botschaft wird mit dem <strong>Föhn</strong> sichtbar
-        (sicherer als Bügeleisen).</p>
-        <div class="signal">🎯 <strong>Signal:</strong> Die enthüllte Nachricht nennt die Ziffer <span class="digit">0</span>.</div>
-        <p><strong>Material:</strong> Zitronensaft, weißes Papier, Wattestäbchen, Föhn.</p>
+        <span class="tag">Physik · Hydrophobie</span>
+        <h3>Station 2 – Die Wachs-Geheimschrift</h3>
+        <p>Auf weißem Karton ist die Zahl vorab mit einem <strong>weißen Wachsmalstift (oder einer
+        Kerze)</strong> aufgemalt – auf weißem Grund praktisch unsichtbar. Die Kinder streichen mit
+        Pinsel eine dünne Wasserfarbe/Lebensmittelfarbe über das ganze Blatt.</p>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Das Wachs stößt das Wasser ab (Hydrophobie) –
+        die Zahl bleibt weiß und tritt scharf aus dem farbigen Hintergrund hervor.</div>
+        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die enthüllte Zahl <em>ist</em>
+        die Ziffer – hier <span class="digit">4</span>. Robust &amp; zuverlässig: nichts ist vorher
+        zu erkennen, und der Effekt gelingt jedes Mal (kein Föhn, kein Bügeleisen nötig).</div>
+        <p><strong>Material:</strong> weißer Karton, weißer Wachsmalstift/Kerze, Wasserfarbkasten
+        oder Lebensmittelfarbe, breite Pinsel, Wasserbecher.</p>
       </div>
 
       <div class="station">
         <span class="tag">Physik · E-Technik</span>
-        <h3>Station 3 – Der Stromkreis-Test</h3>
-        <p>Batteriebetriebene Messstation mit LED/Summer und zwei Kontakten. Die Kinder testen
-        Gegenstände auf Leitfähigkeit – Löffel leitet, Radiergummi nicht.</p>
-        <div class="signal">🎯 <strong>Signal:</strong> Beim leitenden Objekt leuchtet die LED → dahinter klebt die Ziffer <span class="digit">1</span>.</div>
-        <p><strong>Material:</strong> AA-Batteriehalter, LED (o. 3-V-Summer), 220-Ω-Widerstand,
-        Litze, Krokoklemmen. Gehäuse aus dem 3D-Drucker (siehe unten).</p>
+        <h3>Station 3 – Der Stromkreis-Detektiv</h3>
+        <p>Ein Prüf-Panel mit <strong>zehn nummerierten Kontakten (0–9)</strong>, einem Start-Kontakt
+        und einem Prüfstift. Hinter der Platte führt ein <strong>einziges verstecktes Kabel</strong>
+        von „Start" zu genau einer Zahl – nur dieser Kontakt schließt den Stromkreis. Die Kinder
+        tippen die Zahlen der Reihe nach ab und finden heraus, bei welcher die LED leuchtet.</p>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Nur bei <strong>einer</strong> Zahl geht die
+        LED an – hier bei der <span class="digit">1</span>.</div>
+        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die leuchtende Zahl ist die
+        Ziffer. Das lässt sich <em>nicht</em> vorher wissen (die Verdrahtung ist versteckt) – die
+        Kinder müssen systematisch messen. Wer möchte, dokumentiert „leitet / leitet nicht" für jede
+        Zahl wie echte Messtechniker.</div>
+        <p><strong>Material:</strong> AA-Batteriehalter, LED + 220-Ω-Widerstand (o. 3-V-Summer),
+        11 Reißzwecken/Messingschrauben als Kontakte, Litze, Krokoklemme als Prüfstift, Panel aus
+        dem 3D-Drucker (siehe unten).</p>
         <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung.</p>
       </div>
 
       <div class="station">
         <span class="tag">Biologie</span>
         <h3>Station 4 – Das Detektivlabor</h3>
-        <p>Fingerabdrücke nehmen (Bleistift-Abrieb, mit Klebefilm abheben) und Muster vergleichen:
-        Schleife, Wirbel, Bogen. „Wessen Abdruck war an der Formel?"</p>
-        <div class="signal">🎯 <strong>Signal:</strong> Der Hinweis verrät den <strong>Fundort der Truhe</strong>.</div>
-        <p><strong>Material:</strong> weiche Bleistifte, Klebefilm, weißes Papier, Lupen.</p>
+        <p>Fingerabdrücke nehmen (Bleistift-Abrieb, mit Klebefilm abheben) und mit den vier
+        „Verdächtigen-Karten" vergleichen: Schleife, Wirbel, Bogen. „Wessen Abdruck war an der
+        Truhe?"</p>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Genau ein Muster passt zum Abdruck an der
+        Truhe.</div>
+        <div class="logic">🧠 <strong>So entsteht der Hinweis:</strong> Die passende Verdächtigen-Karte
+        trägt auf der Rückseite den <strong>Fundort</strong> (z. B. „hinter dem grünen Vorhang").
+        Diese Station liefert also keine Ziffer, sondern das <em>Wo</em> für die Truhe.</p>
+        <p><strong>Material:</strong> weiche Bleistifte, Klebefilm, weißes Papier, Lupen,
+        4 Verdächtigen-Karten mit Musterproben.</p>
       </div>
 
       <div class="station">
-        <span class="tag">Physik</span>
+        <span class="tag">Physik · Dichte</span>
         <h3>Station 5 – Der Dichte-Turm</h3>
         <p>Schichten unterschiedlicher Dichte in ein hohes Glas: Honig → Spülmittel → gefärbtes
-        Wasser → Öl. Sie bleiben getrennt und bilden einen Regenbogen-Turm.</p>
-        <div class="signal">🎯 <strong>Signal:</strong> In welcher Schicht ein Gegenstand liegen bleibt, gibt die Ziffer <span class="digit">7</span> frei.</div>
-        <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Speiseöl, Lebensmittelfarbe.</p>
+        Wasser → Öl. Sie bleiben getrennt und bilden einen Regenbogen-Turm. Dann bekommen die Kinder
+        <strong>fünf kleine Objekte</strong> (z. B. Weintraube, Kirschtomate, Korken, Plastikperle,
+        Metallmutter) und lassen sie hineinfallen. Jedes bleibt in der Schicht liegen, deren Dichte
+        zu ihm passt.</p>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Manche sinken bis zum Honig, manche
+        schwimmen oben auf dem Öl – und einige bleiben genau auf der <strong>Wasserschicht</strong>
+        liegen.</div>
+        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die Kinder <em>zählen</em>, wie
+        viele Objekte auf der Wasserschicht liegen bleiben – das ergibt die Ziffer
+        <span class="digit">3</span>. (Objekt-Set so wählen, dass genau drei die Dichte zwischen Öl
+        und Wasser haben, z. B. Weintraube, Kirschtomate, Plastikperle.)</div>
+        <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Speiseöl, Lebensmittelfarbe,
+        5 kleine Test-Objekte.</p>
       </div>
 
     </div>
+
+    <h2>🔐 Code zusammensetzen</h2>
+    <p>Am Ende tragen die Kinder ihre vier gemessenen Ziffern in die richtige Reihenfolge ein –
+    <strong>Stelle für Stelle wie auf dem Zahlenschloss</strong>:</p>
+    <table>
+      <tr><th>Schloss-Stelle</th><th>Station</th><th>Woran abgelesen</th><th>Ziffer</th></tr>
+      <tr><td>1.</td><td>pH-Geheimtrank</td><td>Farbe → pH-Skala</td><td><span class="digit">2</span></td></tr>
+      <tr><td>2.</td><td>Wachs-Geheimschrift</td><td>enthüllte Zahl</td><td><span class="digit">4</span></td></tr>
+      <tr><td>3.</td><td>Stromkreis-Detektiv</td><td>leuchtende Zahl</td><td><span class="digit">1</span></td></tr>
+      <tr><td>4.</td><td>Dichte-Turm</td><td>Anzahl auf Wasserschicht</td><td><span class="digit">3</span></td></tr>
+    </table>
+    <p class="lead">Willst du einen anderen Code? Dann einfach anpassen: pH-Farbe der Probe wählen,
+    andere Zahl mit Wachs schreiben, das versteckte Kabel auf einen anderen Kontakt legen und das
+    Objekt-Set für die Wasserschicht abzählen.</p>
 
     <h2>🌋 Finale – „Der große Ausbruch"</h2>
     <p><strong>Elefantenzahnpasta light</strong>, aufgebaut in einer großen Wanne oder auf einem
@@ -208,35 +278,34 @@
     (~9–14 €), saisonal auch buttinette.de.</p>
 
     <h2>🖨️ 3D-Druck – OpenSCAD</h2>
-    <h3>1) Forscher-Messstation (Gehäuse + Deckel)</h3>
-<pre><code>// Forscher-Messstation – parametrisch (mm)
-box_l = 100; box_w = 70; box_h = 40;
-wall  = 2.4;  lid_h = 3;
-screw_d = 4.2;        // Bohrung M4-Kontaktschrauben
-screw_spacing = 45;   // Abstand der Kontakte
-led_d = 5.2;          // 5-mm-LED  (Summer: 12.5)
+    <h3>1) Prüf-Panel für den Stromkreis-Detektiv</h3>
+    <p class="lead">Platte mit 10 nummerierten Kontaktlöchern (0–9), einem Start-Kontakt und einem
+    LED-Loch. Reißzwecken/Schrauben von hinten durchstecken, dahinter das versteckte Kabel legen.</p>
+<pre><code>// Stromkreis-Detektiv – Pruef-Panel (mm)
+panel_l = 160; panel_w = 70; panel_t = 3;
+n       = 10;          // Kontakte 0..9
+contact_d = 4.2;       // Loch fuer Reisszwecke/Schraube
+led_d   = 5.2;         // 5-mm-LED
+margin  = 16;
 $fn = 48;
 
-module gehaeuse() {
+module panel() {
   difference() {
-    cube([box_l, box_w, box_h]);
-    translate([wall, wall, wall])
-      cube([box_l-2*wall, box_w-2*wall, box_h]);
+    cube([panel_l, panel_w, panel_t]);
+    // Reihe nummerierter Kontakte
+    step = (panel_l - 2*margin) / (n-1);
+    for (i = [0:n-1])
+      translate([margin + i*step, panel_w*0.62, -1])
+        cylinder(d=contact_d, h=panel_t+2);
+    // Start-Kontakt
+    translate([margin, panel_w*0.28, -1])
+      cylinder(d=contact_d, h=panel_t+2);
+    // LED-Loch
+    translate([panel_l-margin, panel_w*0.28, -1])
+      cylinder(d=led_d, h=panel_t+2);
   }
 }
-module deckel() {
-  difference() {
-    cube([box_l, box_w, lid_h]);
-    translate([box_l/2 - screw_spacing/2, box_w/2, -1])
-      cylinder(d=screw_d, h=lid_h+2);
-    translate([box_l/2 + screw_spacing/2, box_w/2, -1])
-      cylinder(d=screw_d, h=lid_h+2);
-    translate([box_l/2, box_w/2 + 20, -1])
-      cylinder(d=led_d, h=lid_h+2);
-  }
-}
-gehaeuse();
-translate([0, box_w + 15, 0]) deckel();</code></pre>
+panel();</code></pre>
 
     <h3>2) Flaschenhalter fürs Finale</h3>
 <pre><code>// Kippsicherer Flaschenhalter (mm)
@@ -256,16 +325,18 @@ difference() {
       <tr><th>Posten</th><th>Quelle</th><th>ca.</th></tr>
       <tr><td>Rotkohl / Rotkohlsaft</td><td>Supermarkt</td><td>1–2 €</td></tr>
       <tr><td>Natron + Zitronensäure</td><td>dm / Rossmann</td><td>3–4 €</td></tr>
+      <tr><td>Wasserfarbkasten + Pinsel</td><td>dm / Schreibwaren</td><td>4–7 €</td></tr>
+      <tr><td>Weiße Wachsmalstifte / Kerze</td><td>Schreibwaren / da</td><td>0–3 €</td></tr>
       <tr><td>Wasserstoffperoxid 3 %</td><td>Apotheke / dm</td><td>2–4 €</td></tr>
       <tr><td>Hefe, Spülmittel, Öl, Honig, Lebensmittelfarbe</td><td>Supermarkt</td><td>meist da</td></tr>
       <tr><td>Pipetten + Kunststoffbecher</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
       <tr><td>Lupen (4×)</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
       <tr><td>Kinder-Schutzbrillen (4×)</td><td>Amazon / Baumarkt</td><td>8–12 €</td></tr>
-      <tr><td>LED/Summer, Widerstand, Batteriehalter, Krokoklemmen</td><td>Reichelt / Conrad / AliExpress</td><td>5–10 €</td></tr>
+      <tr><td>LED/Summer, Widerstand, Batteriehalter, Krokoklemmen, Reißzwecken</td><td>Reichelt / Conrad / AliExpress</td><td>5–10 €</td></tr>
       <tr><td>4-stelliges Zahlen-Vorhängeschloss</td><td>Baumarkt / Amazon</td><td>6–8 €</td></tr>
       <tr><td>Weiße T-Shirts (Kittel), falls nötig</td><td>Sozialkaufhaus / Primark</td><td>0–12 €</td></tr>
     </table>
-    <p class="lead"><strong>Realistische Zusatzkosten: ~35–55 €.</strong></p>
+    <p class="lead"><strong>Realistische Zusatzkosten: ~35–60 €.</strong></p>
 
     <h2>🪪 Forscher-Ausweise</h2>
     <p class="no-print lead">Über den Button ganz oben druckst du nur die vier Karten. Am besten auf
