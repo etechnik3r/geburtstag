@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Akademie der jungen Forscher – Geburtstagskonzept</title>
+<style>
+  :root{
+    --bg:#0f1226; --card:#ffffff; --ink:#1a1c2e; --muted:#5b607a;
+    --accent:#16a3a3; --accent2:#7c4dff; --line:#e5e7f0; --soft:#f5f6fb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:linear-gradient(160deg,#0f1226,#1a1f45);line-height:1.55;}
+  .wrap{max-width:860px;margin:0 auto;padding:20px;}
+  header.hero{background:radial-gradient(1200px 300px at 20% -10%,rgba(124,77,255,.35),transparent),
+    linear-gradient(135deg,#12163a,#1c2350);color:#fff;border-radius:22px;padding:34px 26px;
+    box-shadow:0 12px 40px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);}
+  header.hero h1{margin:0 0 6px;font-size:1.9rem;letter-spacing:.3px}
+  header.hero p{margin:0;color:#c7ccf0}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 8px}
+  .btn{background:var(--accent);color:#04201f;border:none;font-weight:700;padding:11px 16px;
+    border-radius:12px;cursor:pointer;font-size:.95rem}
+  .btn.alt{background:var(--accent2);color:#fff}
+  main{background:var(--card);border-radius:22px;padding:26px 22px;margin-top:14px;
+    box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  h2{margin:34px 0 10px;font-size:1.35rem;display:flex;align-items:center;gap:10px;
+    border-bottom:2px solid var(--line);padding-bottom:8px}
+  h2:first-child{margin-top:4px}
+  h3{margin:20px 0 6px;font-size:1.08rem}
+  .lead{color:var(--muted)}
+  .grid{display:grid;gap:14px}
+  .station{border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:14px;
+    padding:14px 16px;background:var(--soft)}
+  .station h3{margin-top:0}
+  .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.5px;color:#fff;background:var(--accent2);padding:3px 8px;border-radius:20px}
+  .signal{background:#fff8e6;border:1px solid #f4d98a;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.95rem}
+  .digit{display:inline-block;min-width:26px;text-align:center;background:var(--accent);color:#fff;
+    font-weight:800;border-radius:8px;padding:1px 8px;margin:0 2px}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.95rem}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--soft)}
+  .timeline td:first-child{white-space:nowrap;font-weight:700;color:var(--accent)}
+  .warn{background:#ffecec;border:1px solid #f3b4b4;border-radius:12px;padding:12px 14px;margin:10px 0}
+  pre{background:#0f1226;color:#d7dcff;padding:14px;border-radius:12px;overflow:auto;font-size:.82rem;line-height:1.4}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace}
+  ul{margin:6px 0 6px 18px}
+  li{margin:3px 0}
+  .code-hint{background:#eafaf7;border:1px solid #a9e5db;border-radius:10px;padding:10px 14px;font-size:.95rem}
+  .bigcode{font-size:1.5rem;font-weight:800;letter-spacing:6px;color:var(--accent2)}
+  /* --- Ausweise --- */
+  #ausweise .badges{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .badge{border:2px solid var(--accent);border-radius:16px;padding:14px;background:#fff;
+    display:flex;flex-direction:column;gap:8px;min-height:250px}
+  .badge .top{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--accent2);font-size:.9rem;
+    border-bottom:2px dashed var(--line);padding-bottom:8px}
+  .badge .row{display:flex;gap:10px}
+  .badge .photo{width:64px;height:64px;border:2px dashed var(--accent);border-radius:12px;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+  .badge .fields{flex:1;font-size:.9rem}
+  .badge .name{font-size:1.15rem;font-weight:800}
+  .badge .rang{color:var(--muted)}
+  .badge .lead-tag{background:#fff2c2;border:1px solid #e9c65a;color:#7a5a00;font-size:.7rem;
+    font-weight:700;padding:2px 8px;border-radius:20px;display:inline-block}
+  .badge .eid{margin-top:auto;font-style:italic;font-size:.82rem;color:var(--muted);
+    border-top:1px solid var(--line);padding-top:8px}
+  footer{color:#aab0d8;text-align:center;padding:18px;font-size:.85rem}
+
+  @media (max-width:620px){
+    #ausweise .badges{grid-template-columns:1fr}
+    header.hero h1{font-size:1.5rem}
+  }
+  /* --- Druck --- */
+  @media print{
+    body{background:#fff}
+    .no-print{display:none !important}
+    main,header.hero{box-shadow:none;border:none;border-radius:0}
+    .wrap{max-width:none;padding:0}
+    .badge{break-inside:avoid;min-height:230px}
+    body.only-badges main > *:not(#ausweise){display:none}
+    body.only-badges header.hero,body.only-badges footer{display:none}
+    #ausweise .badges{gap:20px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>🔬 Die Akademie der jungen Forscher</h1>
+    <p>Wissenschafts-Geburtstag für Jonte, Emil, Mia &amp; Fiete – 4 Kinder · ca. 2 Stunden</p>
+  </header>
+
+  <div class="toolbar no-print">
+    <button class="btn" onclick="printBadges()">🖨️ Nur Ausweise drucken</button>
+    <button class="btn alt" onclick="window.print()">📄 Ganzes Konzept drucken</button>
+  </div>
+
+  <main>
+
+    <h2>🧪 Die Geschichte</h2>
+    <p>Dr. Neutrinos <strong>„Superformel"</strong> ist bei einem missglückten Experiment in
+    Fragmente zerfallen. Die vier Kinder werden als Nachwuchs-Forscher in die Akademie aufgenommen –
+    mit Kittel, Ausweis und Forscher-Eid. An den Stationen sammeln sie <strong>Ziffern</strong>,
+    knacken damit den Code am Zahlenschloss der Forscher-Truhe und lösen zum Schluss den großen
+    Effekt aus.</p>
+    <div class="code-hint">
+      <strong>Der Geheimcode:</strong> Vier Stationen liefern je eine Ziffer, das Detektivlabor
+      verrät den Fundort der Truhe. Der Code lautet
+      <span class="bigcode">2&nbsp;0&nbsp;1&nbsp;7</span><br>
+      (Station 1 → <span class="digit">2</span>, Station 2 → <span class="digit">0</span>,
+      Station 3 → <span class="digit">1</span>, Station 5 → <span class="digit">7</span>).
+      Stell diesen Code am Zahlenschloss der Truhe ein.
+    </div>
+
+    <h2>⏱️ Zeitplan (ca. 2 Stunden)</h2>
+    <table class="timeline">
+      <tr><td>0:00–0:15</td><td>Ankommen · Kittel &amp; Ausweise · Vereidigung · Story-Auftakt</td></tr>
+      <tr><td>0:15–0:30</td><td>Station 1 – Der Geheimtrank</td></tr>
+      <tr><td>0:30–0:45</td><td>Station 2 – Die Geheimbotschaft</td></tr>
+      <tr><td>0:45–1:00</td><td>Station 3 – Der Stromkreis-Test</td></tr>
+      <tr><td>1:00–1:15</td><td>Station 4 – Das Detektivlabor</td></tr>
+      <tr><td>1:15–1:30</td><td>Station 5 – Der Dichte-Turm</td></tr>
+      <tr><td>1:30–1:45</td><td>Code knacken → Truhe öffnen → <strong>Finale-Effekt</strong></td></tr>
+      <tr><td>1:45–2:00</td><td>Kuchen · Puffer · Toben</td></tr>
+    </table>
+    <p class="lead">Puffer ist Absicht. Wird's knapp, streichst du Station 5 und gibst die
+    Ziffer <span class="digit">7</span> als „Bonus" direkt aus.</p>
+
+    <h2>🔭 Die fünf Stationen</h2>
+    <div class="grid">
+
+      <div class="station">
+        <span class="tag">Chemie</span>
+        <h3>Station 1 – Der Geheimtrank</h3>
+        <p>Rotkohlsaft als natürlicher pH-Indikator. Die Kinder tröpfeln Zitronensäure (→ pink/rot)
+        und Natronlösung (→ blau/grün) in Becher und mischen die „richtige Trankfarbe".</p>
+        <div class="signal">🎯 <strong>Signal:</strong> Wer die Zielfarbe trifft, erhält die Ziffer <span class="digit">2</span>.</div>
+        <p><strong>Material:</strong> Rotkohl/Rotkohlsaft, Natron, Zitronensäure, klare Becher, Pipetten.</p>
+      </div>
+
+      <div class="station">
+        <span class="tag">Chemie · Wärme</span>
+        <h3>Station 2 – Die Geheimbotschaft</h3>
+        <p>Mit Zitronensaft vorgeschriebene Botschaft wird mit dem <strong>Föhn</strong> sichtbar
+        (sicherer als Bügeleisen).</p>
+        <div class="signal">🎯 <strong>Signal:</strong> Die enthüllte Nachricht nennt die Ziffer <span class="digit">0</span>.</div>
+        <p><strong>Material:</strong> Zitronensaft, weißes Papier, Wattestäbchen, Föhn.</p>
+      </div>
+
+      <div class="station">
+        <span class="tag">Physik · E-Technik</span>
+        <h3>Station 3 – Der Stromkreis-Test</h3>
+        <p>Batteriebetriebene Messstation mit LED/Summer und zwei Kontakten. Die Kinder testen
+        Gegenstände auf Leitfähigkeit – Löffel leitet, Radiergummi nicht.</p>
+        <div class="signal">🎯 <strong>Signal:</strong> Beim leitenden Objekt leuchtet die LED → dahinter klebt die Ziffer <span class="digit">1</span>.</div>
+        <p><strong>Material:</strong> AA-Batteriehalter, LED (o. 3-V-Summer), 220-Ω-Widerstand,
+        Litze, Krokoklemmen. Gehäuse aus dem 3D-Drucker (siehe unten).</p>
+        <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung.</p>
+      </div>
+
+      <div class="station">
+        <span class="tag">Biologie</span>
+        <h3>Station 4 – Das Detektivlabor</h3>
+        <p>Fingerabdrücke nehmen (Bleistift-Abrieb, mit Klebefilm abheben) und Muster vergleichen:
+        Schleife, Wirbel, Bogen. „Wessen Abdruck war an der Formel?"</p>
+        <div class="signal">🎯 <strong>Signal:</strong> Der Hinweis verrät den <strong>Fundort der Truhe</strong>.</div>
+        <p><strong>Material:</strong> weiche Bleistifte, Klebefilm, weißes Papier, Lupen.</p>
+      </div>
+
+      <div class="station">
+        <span class="tag">Physik</span>
+        <h3>Station 5 – Der Dichte-Turm</h3>
+        <p>Schichten unterschiedlicher Dichte in ein hohes Glas: Honig → Spülmittel → gefärbtes
+        Wasser → Öl. Sie bleiben getrennt und bilden einen Regenbogen-Turm.</p>
+        <div class="signal">🎯 <strong>Signal:</strong> In welcher Schicht ein Gegenstand liegen bleibt, gibt die Ziffer <span class="digit">7</span> frei.</div>
+        <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Speiseöl, Lebensmittelfarbe.</p>
+      </div>
+
+    </div>
+
+    <h2>🌋 Finale – „Der große Ausbruch"</h2>
+    <p><strong>Elefantenzahnpasta light</strong>, aufgebaut in einer großen Wanne oder auf einem
+    Backblech – funktioniert dadurch <strong>drinnen wie draußen</strong>: Trockenhefe in warmem
+    Wasser aktivieren, in eine Flasche mit Spülmittel, Lebensmittelfarbe und
+    <strong>3 %igem Wasserstoffperoxid</strong> geben → dicker, warmer Schaum quillt heraus.</p>
+    <div class="warn">
+      ⚠️ <strong>Sicherheit:</strong> Strikt bei <strong>3 % H₂O₂ aus der Drogerie/Apotheke</strong>
+      bleiben. Höherprozentiges (&gt;12 %) ist reizend/ätzend und für Kindergeburtstage unnötig.
+      Schutzbrillen auf – dann ist der Effekt harmlos und spektakulär.
+    </div>
+    <p><strong>Outdoor-Bonus</strong> (nur bei gutem Wetter): zusätzlich Filmdöschen-Raketen mit
+    Brausetablette. Als Backup einfach weglassbar.</p>
+
+    <h2>🥼 Laborkittel selber basteln</h2>
+    <p>Günstig &amp; sauber aus einem <strong>übergroßen weißen T-Shirt</strong> (oder alten weißen Hemd):</p>
+    <ul>
+      <li>T-Shirt flach hinlegen, Vorderseite oben.</li>
+      <li>Vorne mittig senkrecht aufschneiden – vom Halsausschnitt bis zum Saum. Das ist die Kittelöffnung.</li>
+      <li>Ärmel bei den Kleinen kürzen/umschlagen.</li>
+      <li>Schnittkanten mit Textilkleber oder ein paar Stichen sichern.</li>
+      <li>Mit Textilstift/Bügelfolie ein „Akademie"-Logo + Namensfeld auf die Brust malen; ein
+      aufgemalter Kugelschreiber in der Brusttasche macht was her.</li>
+    </ul>
+    <p class="lead">Aus altem Hemd noch einfacher: ist vorne schon offen – nur Logo drauf. ~10 Min pro Kittel.</p>
+    <p><strong>Kaufalternative (D):</strong> „Kinder Laborkittel / Arztkittel Kostüm" bei Amazon.de
+    (~9–14 €), saisonal auch buttinette.de.</p>
+
+    <h2>🖨️ 3D-Druck – OpenSCAD</h2>
+    <h3>1) Forscher-Messstation (Gehäuse + Deckel)</h3>
+<pre><code>// Forscher-Messstation – parametrisch (mm)
+box_l = 100; box_w = 70; box_h = 40;
+wall  = 2.4;  lid_h = 3;
+screw_d = 4.2;        // Bohrung M4-Kontaktschrauben
+screw_spacing = 45;   // Abstand der Kontakte
+led_d = 5.2;          // 5-mm-LED  (Summer: 12.5)
+$fn = 48;
+
+module gehaeuse() {
+  difference() {
+    cube([box_l, box_w, box_h]);
+    translate([wall, wall, wall])
+      cube([box_l-2*wall, box_w-2*wall, box_h]);
+  }
+}
+module deckel() {
+  difference() {
+    cube([box_l, box_w, lid_h]);
+    translate([box_l/2 - screw_spacing/2, box_w/2, -1])
+      cylinder(d=screw_d, h=lid_h+2);
+    translate([box_l/2 + screw_spacing/2, box_w/2, -1])
+      cylinder(d=screw_d, h=lid_h+2);
+    translate([box_l/2, box_w/2 + 20, -1])
+      cylinder(d=led_d, h=lid_h+2);
+  }
+}
+gehaeuse();
+translate([0, box_w + 15, 0]) deckel();</code></pre>
+
+    <h3>2) Flaschenhalter fürs Finale</h3>
+<pre><code>// Kippsicherer Flaschenhalter (mm)
+bottle_d = 65;   // Flaschendurchmesser messen!
+ring_h  = 40;  base_d = 130;  wall = 4;
+$fn = 64;
+difference() {
+  union() {
+    cylinder(d=base_d, h=6);
+    translate([0,0,6]) cylinder(d=bottle_d+2*wall, h=ring_h);
+  }
+  translate([0,0,6]) cylinder(d=bottle_d, h=ring_h+1);
+}</code></pre>
+
+    <h2>🛒 Einkaufszettel &amp; Kosten (D)</h2>
+    <table>
+      <tr><th>Posten</th><th>Quelle</th><th>ca.</th></tr>
+      <tr><td>Rotkohl / Rotkohlsaft</td><td>Supermarkt</td><td>1–2 €</td></tr>
+      <tr><td>Natron + Zitronensäure</td><td>dm / Rossmann</td><td>3–4 €</td></tr>
+      <tr><td>Wasserstoffperoxid 3 %</td><td>Apotheke / dm</td><td>2–4 €</td></tr>
+      <tr><td>Hefe, Spülmittel, Öl, Honig, Lebensmittelfarbe</td><td>Supermarkt</td><td>meist da</td></tr>
+      <tr><td>Pipetten + Kunststoffbecher</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
+      <tr><td>Lupen (4×)</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
+      <tr><td>Kinder-Schutzbrillen (4×)</td><td>Amazon / Baumarkt</td><td>8–12 €</td></tr>
+      <tr><td>LED/Summer, Widerstand, Batteriehalter, Krokoklemmen</td><td>Reichelt / Conrad / AliExpress</td><td>5–10 €</td></tr>
+      <tr><td>4-stelliges Zahlen-Vorhängeschloss</td><td>Baumarkt / Amazon</td><td>6–8 €</td></tr>
+      <tr><td>Weiße T-Shirts (Kittel), falls nötig</td><td>Sozialkaufhaus / Primark</td><td>0–12 €</td></tr>
+    </table>
+    <p class="lead"><strong>Realistische Zusatzkosten: ~35–55 €.</strong></p>
+
+    <h2>🪪 Forscher-Ausweise</h2>
+    <p class="no-print lead">Über den Button ganz oben druckst du nur die vier Karten. Am besten auf
+    festes Papier (160–200 g/m²), optional laminieren, Loch + Kordel zum Umhängen.</p>
+    <div id="ausweise">
+      <div class="badges">
+
+        <div class="badge">
+          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
+          <div class="row">
+            <div class="photo">🎂</div>
+            <div class="fields">
+              <div class="name">Jonte</div>
+              <div class="rang"><span class="lead-tag">Leitender Forscher</span></div>
+              <div class="rang">ID-Nr.: 0001</div>
+            </div>
+          </div>
+          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+        </div>
+
+        <div class="badge">
+          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
+          <div class="row">
+            <div class="photo">🧪</div>
+            <div class="fields">
+              <div class="name">Emil</div>
+              <div class="rang">Rang: Nachwuchs-Forscher</div>
+              <div class="rang">ID-Nr.: 0002</div>
+            </div>
+          </div>
+          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+        </div>
+
+        <div class="badge">
+          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
+          <div class="row">
+            <div class="photo">🔍</div>
+            <div class="fields">
+              <div class="name">Mia</div>
+              <div class="rang">Rang: Nachwuchs-Forscherin</div>
+              <div class="rang">ID-Nr.: 0003</div>
+            </div>
+          </div>
+          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+        </div>
+
+        <div class="badge">
+          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
+          <div class="row">
+            <div class="photo">⚡</div>
+            <div class="fields">
+              <div class="name">Fiete</div>
+              <div class="rang">Rang: Nachwuchs-Forscher</div>
+              <div class="rang">ID-Nr.: 0004</div>
+            </div>
+          </div>
+          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>Viel Spaß beim Forschen! · Akademie der jungen Forscher</footer>
+</div>
+
+<script>
+  function printBadges(){
+    document.body.classList.add('only-badges');
+    window.print();
+    setTimeout(function(){document.body.classList.remove('only-badges');},500);
+  }
+</script>
+</body>
+</html>
