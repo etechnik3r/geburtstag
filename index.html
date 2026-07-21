@@ -8,6 +8,7 @@
   :root{
     --bg:#0f1226; --card:#ffffff; --ink:#1a1c2e; --muted:#5b607a;
     --accent:#16a3a3; --accent2:#7c4dff; --line:#e5e7f0; --soft:#f5f6fb;
+    --gold:#c9a227;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -37,6 +38,10 @@
     letter-spacing:.5px;color:#fff;background:var(--accent2);padding:3px 8px;border-radius:20px}
   .signal{background:#fff8e6;border:1px solid #f4d98a;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.95rem}
   .logic{background:#eef3ff;border:1px solid #b9caf6;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.95rem}
+  .story{background:#f3f0ff;border-left:4px solid var(--accent2);border-radius:0 10px 10px 0;
+    padding:8px 12px;margin:8px 0;font-size:.95rem;font-style:italic;color:#3a2f5e}
+  .option{background:#eefaf6;border:1px solid #a9e5db;border-radius:10px;padding:10px 12px;margin:8px 0}
+  .option b{color:#0a7d6f}
   .digit{display:inline-block;min-width:26px;text-align:center;background:var(--accent);color:#fff;
     font-weight:800;border-radius:8px;padding:1px 8px;margin:0 2px}
   table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.95rem}
@@ -50,31 +55,68 @@
   li{margin:3px 0}
   .code-hint{background:#eafaf7;border:1px solid #a9e5db;border-radius:10px;padding:10px 14px;font-size:.95rem}
   .bigcode{font-size:1.5rem;font-weight:800;letter-spacing:6px;color:var(--accent2)}
+  .src{font-size:.9rem}
+  .src a{color:var(--accent2);word-break:break-word}
   /* pH-Skala */
   .ph-scale{display:flex;flex-wrap:wrap;gap:0;margin:10px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
   .ph-scale div{flex:1 1 60px;text-align:center;padding:8px 4px;font-weight:800;color:#12163a;font-size:.9rem;min-width:56px}
   .ph-scale small{display:block;font-weight:600;color:rgba(0,0,0,.55);font-size:.72rem}
-  /* --- Ausweise --- */
-  #ausweise .badges{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .badge{border:2px solid var(--accent);border-radius:16px;padding:14px;background:#fff;
-    display:flex;flex-direction:column;gap:8px;min-height:250px}
-  .badge .top{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--accent2);font-size:.9rem;
-    border-bottom:2px dashed var(--line);padding-bottom:8px}
-  .badge .row{display:flex;gap:10px}
-  .badge .photo{width:64px;height:64px;border:2px dashed var(--accent);border-radius:12px;
-    display:flex;align-items:center;justify-content:center;font-size:1.8rem}
-  .badge .fields{flex:1;font-size:.9rem}
-  .badge .name{font-size:1.15rem;font-weight:800}
-  .badge .rang{color:var(--muted)}
-  .badge .lead-tag{background:#fff2c2;border:1px solid #e9c65a;color:#7a5a00;font-size:.7rem;
-    font-weight:700;padding:2px 8px;border-radius:20px;display:inline-block}
-  .badge .eid{margin-top:auto;font-style:italic;font-size:.82rem;color:var(--muted);
-    border-top:1px solid var(--line);padding-top:8px}
+
+  /* ---------- HOCHWERTIGE AUSWEISE ---------- */
+  #ausweise .badges{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .badge{position:relative;border-radius:16px;padding:0;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(600px 200px at 120% -20%,rgba(124,77,255,.5),transparent),
+      repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 8px,transparent 8px 16px),
+      linear-gradient(160deg,#151a3e,#1e2a5c 60%,#16324f);
+    box-shadow:0 10px 26px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14);
+    min-height:300px;display:flex;flex-direction:column}
+  .badge::before{content:"";position:absolute;inset:0;
+    background:repeating-radial-gradient(circle at 30% 20%,rgba(255,255,255,.05) 0 1px,transparent 1px 9px);
+    pointer-events:none;opacity:.6}
+  .badge .b-top{display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:11px 14px;background:linear-gradient(90deg,rgba(22,163,163,.9),rgba(124,77,255,.85));
+    border-bottom:1px solid rgba(255,255,255,.18)}
+  .badge .b-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.72rem;
+    letter-spacing:.6px;line-height:1.15}
+  .badge .b-brand .em{font-size:1.15rem}
+  .badge .holo{width:34px;height:26px;border-radius:5px;flex:none;
+    background:conic-gradient(from 0deg,#ff6b6b,#ffd93d,#6bcB77,#4d96ff,#c14fe0,#ff6b6b);
+    filter:saturate(1.2);border:1px solid rgba(255,255,255,.5);
+    box-shadow:inset 0 0 6px rgba(255,255,255,.6)}
+  .badge .b-body{display:flex;gap:14px;padding:14px}
+  .badge .photo{width:104px;height:120px;border-radius:12px;flex:none;
+    border:2px solid rgba(255,255,255,.35);
+    background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));
+    display:flex;align-items:center;justify-content:center;font-size:3.6rem;
+    box-shadow:inset 0 0 18px rgba(0,0,0,.25)}
+  .badge .fields{flex:1;min-width:0}
+  .badge .name{font-size:1.5rem;font-weight:800;line-height:1.1;letter-spacing:.3px}
+  .badge .rang{color:#cdd4ff;font-size:.9rem;margin-top:2px}
+  .badge .lvl{display:inline-block;margin-top:8px;font-size:.68rem;font-weight:800;letter-spacing:.5px;
+    text-transform:uppercase;padding:3px 9px;border-radius:20px;
+    background:rgba(201,162,39,.2);color:#ffdf8a;border:1px solid rgba(201,162,39,.7)}
+  .badge .lvl.lead{background:rgba(255,215,90,.28);color:#fff2c2;border-color:#ffe08a}
+  .badge .idline{margin-top:10px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.8rem;color:#9fb2ff}
+  .badge .b-foot{margin-top:auto;padding:10px 14px 14px;
+    border-top:1px dashed rgba(255,255,255,.2)}
+  .badge .barcode{height:34px;border-radius:3px;background:#f4f6ff;padding:4px;
+    background-image:repeating-linear-gradient(90deg,#0b1030 0 2px,#f4f6ff 2px 3px,#0b1030 3px 6px,#f4f6ff 6px 8px,#0b1030 8px 9px,#f4f6ff 9px 12px);
+    background-clip:content-box}
+  .badge .bc-num{margin-top:4px;display:flex;justify-content:space-between;
+    font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.72rem;color:#aeb8ee;letter-spacing:1px}
+  .badge .eid{font-style:italic;font-size:.8rem;color:#c7cdf5;margin-top:8px}
+  .badge .sign{margin-top:6px;font-size:.74rem;color:#8f9bd6;display:flex;justify-content:space-between;
+    border-top:1px solid rgba(255,255,255,.12);padding-top:6px}
+  .badge .sign span:last-child{font-family:"Segoe Script","Brush Script MT",cursive;font-size:1rem;color:#e7ecff}
+
   footer{color:#aab0d8;text-align:center;padding:18px;font-size:.85rem}
 
   @media (max-width:620px){
     #ausweise .badges{grid-template-columns:1fr}
     header.hero h1{font-size:1.5rem}
+    .badge .photo{width:88px;height:104px;font-size:3rem}
+    .badge .name{font-size:1.3rem}
   }
   /* --- Druck --- */
   @media print{
@@ -82,7 +124,7 @@
     .no-print{display:none !important}
     main,header.hero{box-shadow:none;border:none;border-radius:0}
     .wrap{max-width:none;padding:0}
-    .badge{break-inside:avoid;min-height:230px}
+    .badge{break-inside:avoid;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     body.only-badges main > *:not(#ausweise){display:none}
     body.only-badges header.hero,body.only-badges footer{display:none}
     #ausweise .badges{gap:20px}
@@ -105,22 +147,45 @@
   <main>
 
     <h2>🧪 Die Geschichte</h2>
-    <p>Dr. Neutrinos <strong>„Superformel"</strong> ist bei einem missglückten Experiment in
-    Fragmente zerfallen. Die vier Kinder werden als Nachwuchs-Forscher in die Akademie aufgenommen –
-    mit Kittel, Ausweis und Forscher-Eid. An vier Mess-Stationen <strong>ermitteln</strong> sie je
-    eine Ziffer, das Detektivlabor verrät den Fundort. Damit knacken sie den Code am Zahlenschloss
-    der Forscher-Truhe und lösen den großen Effekt aus.</p>
+    <p>Dr. Neutrinos <strong>„Superformel"</strong> – die Formel, mit der die Akademie ihren
+    Wunder-Reaktor zündet – ist bei einem missglückten Experiment explodiert und in
+    <strong>vier Fragmente</strong> zerfallen. Die Fragmente sind als Zahlen im Labor verstreut, und
+    das letzte, wichtigste Bauteil (der „Aktivator") hat Dr. Neutrino vor dem Knall in einer Truhe
+    eingeschlossen. Die vier Kinder werden als Nachwuchs-Forscher aufgenommen, vereidigt – und
+    bekommen den Auftrag, die Formel wieder zusammenzusetzen und den Reaktor neu zu zünden.</p>
+
+    <h2>📖 Kurzablauf der Story (zum Vorlesen)</h2>
+    <div class="story">🎬 <strong>Auftakt:</strong> „Alarm in der Akademie! Dr. Neutrino ist beim
+    Test der Superformel etwas danebengegangen – ein Knall, Rauch, und die Formel ist in vier
+    Fragmente zerbrochen. Ohne sie steht der Forscher-Reaktor still. Wir brauchen dringend neue
+    Forscher … genau euch! Zieht die Kittel an, hier sind eure Ausweise – und jetzt der Forscher-Eid."</div>
+    <div class="story">1️⃣ <strong>Vor Station 1:</strong> „Das erste Fragment steckt in Dr. Neutrinos
+    Geheimtrank. Nur wer den richtigen Säuregrad erkennt, liest die erste Zahl ab."</div>
+    <div class="story">2️⃣ <strong>Vor Station 2:</strong> „Dr. Neutrino hat eine Zahl unsichtbar
+    versteckt – so wie echte Forscher geheime Notizen tarnen. Macht sie sichtbar!"</div>
+    <div class="story">3️⃣ <strong>Vor Station 3:</strong> „Der Reaktor braucht Strom. Bringt die
+    Batterien richtig in Reihe und messt – die Spannung verrät die dritte Zahl."</div>
+    <div class="story">4️⃣ <strong>Vor Station 4:</strong> „Jemand hat die Truhe angefasst! An ihr klebt
+    ein Fingerabdruck. Findet heraus, <em>wo</em> Dr. Neutrino sie versteckt hat."</div>
+    <div class="story">5️⃣ <strong>Vor Station 5:</strong> „Das letzte Fragment schwebt in einem
+    Dichte-Turm. Findet heraus, welche Zahl die Schichten euch verraten."</div>
+    <div class="story">🏁 <strong>Finale – warum der „große Ausbruch"?</strong> „Ihr habt alle vier
+    Fragmente <span class="digit">2</span><span class="digit">5</span><span class="digit">3</span><span class="digit">1</span>
+    und den Ort! Öffnet die Truhe – darin liegt der <strong>Aktivator</strong> (die Hefe/der
+    Katalysator). Gebt ihn in die Formel … <strong>und der Reaktor zündet!</strong>" Der Schaum-Ausbruch
+    ist also kein bloßer Gag, sondern die <strong>sichtbare Belohnung</strong>: Die Superformel lebt
+    wieder, die Mission ist erfüllt – jetzt sind die Kinder <em>vollwertige</em> Forscher der Akademie.</div>
 
     <div class="code-hint">
       <strong>Wie entsteht der Code?</strong> Jede Ziffer wird <em>abgelesen oder gemessen</em> –
       nicht geschenkt. Kein Kind kann sie vorher „wissen":
       <ul>
         <li><strong>Stelle 1</strong> – pH-Skala: die Trankfarbe zeigt auf einen pH-Wert → <span class="digit">2</span></li>
-        <li><strong>Stelle 2</strong> – enthüllte Wachszahl: die Farbe legt die Zahl frei → <span class="digit">4</span></li>
-        <li><strong>Stelle 3</strong> – Prüf-Panel: nur ein Kontakt lässt die LED leuchten → <span class="digit">1</span></li>
-        <li><strong>Stelle 4</strong> – Dichte-Turm: so viele Objekte bleiben auf der Wasserschicht → <span class="digit">3</span></li>
+        <li><strong>Stelle 2</strong> – enthüllte Wachszahl: die Farbe legt die Zahl frei → <span class="digit">5</span></li>
+        <li><strong>Stelle 3</strong> – Volt-Messung: Batterien in Reihe, Multimeter zeigt die Spannung → <span class="digit">3</span></li>
+        <li><strong>Stelle 4</strong> – Dichte-Turm: so viele Objekte bleiben auf der Wasserschicht → <span class="digit">1</span></li>
       </ul>
-      Der Code lautet <span class="bigcode">2&nbsp;4&nbsp;1&nbsp;3</span> – das Detektivlabor sagt,
+      Der Code lautet <span class="bigcode">2&nbsp;5&nbsp;3&nbsp;1</span> – das Detektivlabor sagt,
       <strong>wo</strong> die Truhe mit diesem Schloss steht.
     </div>
 
@@ -129,15 +194,12 @@
       <tr><td>0:00–0:15</td><td>Ankommen · Kittel &amp; Ausweise · Vereidigung · Story-Auftakt</td></tr>
       <tr><td>0:15–0:30</td><td>Station 1 – Der pH-Geheimtrank</td></tr>
       <tr><td>0:30–0:45</td><td>Station 2 – Die Wachs-Geheimschrift</td></tr>
-      <tr><td>0:45–1:00</td><td>Station 3 – Der Stromkreis-Detektiv</td></tr>
+      <tr><td>0:45–1:00</td><td>Station 3 – Die Spannungs-Messung</td></tr>
       <tr><td>1:00–1:15</td><td>Station 4 – Das Detektivlabor</td></tr>
       <tr><td>1:15–1:30</td><td>Station 5 – Der Dichte-Turm</td></tr>
       <tr><td>1:30–1:45</td><td>Code zusammensetzen → Truhe öffnen → <strong>Finale-Effekt</strong></td></tr>
       <tr><td>1:45–2:00</td><td>Kuchen · Puffer · Toben</td></tr>
     </table>
-    <p class="lead">Puffer ist Absicht. Wird's knapp, streichst du den Dichte-Turm und stellst die
-    Objekte fertig geschichtet hin – die Kinder zählen dann nur noch die Wasserschicht-Objekte
-    (Ziffer <span class="digit">3</span>).</p>
 
     <h2>🔭 Die fünf Stationen</h2>
     <div class="grid">
@@ -175,7 +237,7 @@
         <div class="signal">🎯 <strong>Ergebnis:</strong> Das Wachs stößt das Wasser ab (Hydrophobie) –
         die Zahl bleibt weiß und tritt scharf aus dem farbigen Hintergrund hervor.</div>
         <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die enthüllte Zahl <em>ist</em>
-        die Ziffer – hier <span class="digit">4</span>. Robust &amp; zuverlässig: nichts ist vorher
+        die Ziffer – hier <span class="digit">5</span>. Robust &amp; zuverlässig: nichts ist vorher
         zu erkennen, und der Effekt gelingt jedes Mal (kein Föhn, kein Bügeleisen nötig).</div>
         <p><strong>Material:</strong> weißer Karton, weißer Wachsmalstift/Kerze, Wasserfarbkasten
         oder Lebensmittelfarbe, breite Pinsel, Wasserbecher.</p>
@@ -183,21 +245,21 @@
 
       <div class="station">
         <span class="tag">Physik · E-Technik</span>
-        <h3>Station 3 – Der Stromkreis-Detektiv</h3>
-        <p>Ein Prüf-Panel mit <strong>zehn nummerierten Kontakten (0–9)</strong>, einem Start-Kontakt
-        und einem Prüfstift. Hinter der Platte führt ein <strong>einziges verstecktes Kabel</strong>
-        von „Start" zu genau einer Zahl – nur dieser Kontakt schließt den Stromkreis. Die Kinder
-        tippen die Zahlen der Reihe nach ab und finden heraus, bei welcher die LED leuchtet.</p>
-        <div class="signal">🎯 <strong>Ergebnis:</strong> Nur bei <strong>einer</strong> Zahl geht die
-        LED an – hier bei der <span class="digit">1</span>.</div>
-        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die leuchtende Zahl ist die
-        Ziffer. Das lässt sich <em>nicht</em> vorher wissen (die Verdrahtung ist versteckt) – die
-        Kinder müssen systematisch messen. Wer möchte, dokumentiert „leitet / leitet nicht" für jede
-        Zahl wie echte Messtechniker.</div>
-        <p><strong>Material:</strong> AA-Batteriehalter, LED + 220-Ω-Widerstand (o. 3-V-Summer),
-        11 Reißzwecken/Messingschrauben als Kontakte, Litze, Krokoklemme als Prüfstift, Panel aus
-        dem 3D-Drucker (siehe unten).</p>
-        <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung.</p>
+        <h3>Station 3 – Die Spannungs-Messung (Reihenschaltung)</h3>
+        <p>Ein echtes Elektrotechnik-Experiment: In einer <strong>Reihenschaltung addieren sich die
+        Spannungen</strong> der Batterien. Die Kinder verbinden zwei 1,5-V-Batterien mit Krokoklemmen
+        richtig <em>hintereinander</em> (Plus an Minus) und messen mit dem <strong>Multimeter</strong>
+        (Stellung „V⎓", Gleichspannung).</p>
+        <div class="signal">🎯 <strong>Ergebnis:</strong> Das Multimeter zeigt rund <strong>3 Volt</strong>
+        (2 × 1,5 V). Bauen sie die Batterien dagegen parallel, bleibt es bei ~1,5 V – dann stimmt der
+        Aufbau noch nicht.</div>
+        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die gemessene Volt-Zahl ist die
+        Ziffer → <span class="digit">3</span>. Das lässt sich nicht raten – es muss richtig aufgebaut
+        <em>und</em> gemessen werden. (Andere Ziffer gewünscht? Mit 4 Batterien in Reihe ≈ 6 V →
+        <span class="digit">6</span>, mit einem 9-V-Block → <span class="digit">9</span>.)</div>
+        <p><strong>Material:</strong> 2–4× AA-Batterien + Halter, Krokoklemmen-Kabel, ein einfaches
+        Digital-Multimeter (ab ~7 €). Optional: der 3D-gedruckte Batterie-Reihen-Halter (siehe unten).</p>
+        <p class="lead">⚠️ Nur Batteriespannung – nie Netzspannung. Multimeter vorher auf „V⎓" stellen.</p>
       </div>
 
       <div class="station">
@@ -219,19 +281,31 @@
         <span class="tag">Physik · Dichte</span>
         <h3>Station 5 – Der Dichte-Turm</h3>
         <p>Schichten unterschiedlicher Dichte in ein hohes Glas: Honig → Spülmittel → gefärbtes
-        Wasser → Öl. Sie bleiben getrennt und bilden einen Regenbogen-Turm. Dann bekommen die Kinder
-        <strong>fünf kleine Objekte</strong> (z. B. Weintraube, Kirschtomate, Korken, Plastikperle,
-        Metallmutter) und lassen sie hineinfallen. Jedes bleibt in der Schicht liegen, deren Dichte
-        zu ihm passt.</p>
-        <div class="signal">🎯 <strong>Ergebnis:</strong> Manche sinken bis zum Honig, manche
-        schwimmen oben auf dem Öl – und einige bleiben genau auf der <strong>Wasserschicht</strong>
-        liegen.</div>
-        <div class="logic">🧠 <strong>So entsteht die Ziffer:</strong> Die Kinder <em>zählen</em>, wie
-        viele Objekte auf der Wasserschicht liegen bleiben – das ergibt die Ziffer
-        <span class="digit">3</span>. (Objekt-Set so wählen, dass genau drei die Dichte zwischen Öl
-        und Wasser haben, z. B. Weintraube, Kirschtomate, Plastikperle.)</div>
+        Wasser → Öl. Sie bleiben getrennt und bilden einen Regenbogen-Turm. Feste Objekte, die man
+        hineinwirft, <strong>bleiben in der Schicht liegen, deren Dichte zu ihnen passt</strong>
+        (belegtes Prinzip, siehe Quellen unten).</p>
+
+        <div class="option">
+          <b>Variante A – Zählen (Standard):</b> Die Kinder bekommen <strong>fünf kleine Objekte</strong>
+          (z. B. Weintraube, Kirschtomate, Korken, Plastikperle, Metallmutter) und werfen sie hinein.
+          Manche sinken bis zum Honig, manche schwimmen oben auf dem Öl – und einige bleiben genau auf
+          der <strong>Wasserschicht</strong> liegen.
+          <div class="logic" style="margin:6px 0 0">🧠 <strong>Ziffer:</strong> So viele Objekte auf der
+          Wasserschicht liegen → hier <span class="digit">1</span>. (Objekt-Set so wählen, dass genau
+          diese Anzahl eine Dichte zwischen Öl und Wasser hat.)</div>
+        </div>
+
+        <div class="option">
+          <b>Variante B – Ablesen an nummerierten Schichten:</b> Neben das Glas einen Zahlenstreifen
+          kleben (jede Schicht bekommt eine Nummer). Es wird nur <strong>ein</strong> geeichter
+          „Forscher-Kristall" (eine Perle passender Dichte) eingeworfen.
+          <div class="logic" style="margin:6px 0 0">🧠 <strong>Ziffer:</strong> Die Nummer der Schicht,
+          in der die Perle liegen bleibt, ist die Ziffer. Frei einstellbar über die Dichte der Perle
+          bzw. die Nummerierung des Streifens.</div>
+        </div>
+
         <p><strong>Material:</strong> hohes Glas, Honig, Spülmittel, Speiseöl, Lebensmittelfarbe,
-        5 kleine Test-Objekte.</p>
+        Test-Objekte (Variante A) bzw. eine geeichte Perle + Zahlenstreifen (Variante B).</p>
       </div>
 
     </div>
@@ -242,19 +316,23 @@
     <table>
       <tr><th>Schloss-Stelle</th><th>Station</th><th>Woran abgelesen</th><th>Ziffer</th></tr>
       <tr><td>1.</td><td>pH-Geheimtrank</td><td>Farbe → pH-Skala</td><td><span class="digit">2</span></td></tr>
-      <tr><td>2.</td><td>Wachs-Geheimschrift</td><td>enthüllte Zahl</td><td><span class="digit">4</span></td></tr>
-      <tr><td>3.</td><td>Stromkreis-Detektiv</td><td>leuchtende Zahl</td><td><span class="digit">1</span></td></tr>
-      <tr><td>4.</td><td>Dichte-Turm</td><td>Anzahl auf Wasserschicht</td><td><span class="digit">3</span></td></tr>
+      <tr><td>2.</td><td>Wachs-Geheimschrift</td><td>enthüllte Zahl</td><td><span class="digit">5</span></td></tr>
+      <tr><td>3.</td><td>Spannungs-Messung</td><td>Volt am Multimeter</td><td><span class="digit">3</span></td></tr>
+      <tr><td>4.</td><td>Dichte-Turm</td><td>Anzahl auf Wasserschicht</td><td><span class="digit">1</span></td></tr>
     </table>
     <p class="lead">Willst du einen anderen Code? Dann einfach anpassen: pH-Farbe der Probe wählen,
-    andere Zahl mit Wachs schreiben, das versteckte Kabel auf einen anderen Kontakt legen und das
-    Objekt-Set für die Wasserschicht abzählen.</p>
+    andere Zahl mit Wachs schreiben, mehr/weniger Batterien in Reihe legen und das Objekt-Set für die
+    Wasserschicht abzählen.</p>
 
     <h2>🌋 Finale – „Der große Ausbruch"</h2>
+    <p><strong>Warum jetzt?</strong> Der geöffneten Truhe entnehmen die Kinder den <strong>Aktivator</strong>
+    (in echt: die aktivierte Trockenhefe) und geben ihn in die vorbereitete „Superformel". Das ist der
+    dramaturgische Höhepunkt: Die Formel ist wieder komplett – und zündet sichtbar.</p>
     <p><strong>Elefantenzahnpasta light</strong>, aufgebaut in einer großen Wanne oder auf einem
     Backblech – funktioniert dadurch <strong>drinnen wie draußen</strong>: Trockenhefe in warmem
-    Wasser aktivieren, in eine Flasche mit Spülmittel, Lebensmittelfarbe und
-    <strong>3 %igem Wasserstoffperoxid</strong> geben → dicker, warmer Schaum quillt heraus.</p>
+    Wasser aktivieren (= der „Aktivator" aus der Truhe), in eine Flasche mit Spülmittel,
+    Lebensmittelfarbe und <strong>3 %igem Wasserstoffperoxid</strong> geben → dicker, warmer Schaum
+    quillt heraus. Der Reaktor „läuft" wieder – Mission erfüllt.</p>
     <div class="warn">
       ⚠️ <strong>Sicherheit:</strong> Strikt bei <strong>3 % H₂O₂ aus der Drogerie/Apotheke</strong>
       bleiben. Höherprozentiges (&gt;12 %) ist reizend/ätzend und für Kindergeburtstage unnötig.
@@ -262,6 +340,26 @@
     </div>
     <p><strong>Outdoor-Bonus</strong> (nur bei gutem Wetter): zusätzlich Filmdöschen-Raketen mit
     Brausetablette. Als Backup einfach weglassbar.</p>
+
+    <h2>📚 Belege &amp; Quellen</h2>
+    <p class="lead">Damit klar ist, was echtes, dokumentiertes Experiment ist (und nicht ausgedacht):</p>
+    <ul class="src">
+      <li><strong>Dichte-Turm mit schwebenden Objekten:</strong> Steve Spangler –
+        <a href="https://stevespangler.com/experiments/seven-layer-density-column/">Seven-Layer Density Column</a>
+        und STAO –
+        <a href="https://stao.ca/seven-layer-density-column/">Seven Layer Density Column</a>.
+        Objekte (Rosine, Schokostück, Büroklammer, Tischtennisball …) bleiben je nach Dichte in einer
+        Schicht liegen. Wissenschaftliche Zusammenfassung:
+        <a href="https://www.csub.edu/chemistry/_files/Density_Column.pdf">CSU Bakersfield (PDF)</a>.
+        <br><em>Belegt ist das Experiment. Die Zähl-/Ablese-Logik für die Ziffer ist meine Ergänzung darauf.</em></li>
+      <li><strong>Spannung in Reihenschaltung messen:</strong> In Reihe addieren sich die Spannungen;
+        2× AA ≈ 3 V am Multimeter – dokumentiert bei
+        <a href="https://sciencewithkids.com/Experiments/Energy-Electricity-Experiments/how-to-make-a-simple-battery.html">Science with Kids</a>
+        (Messung 3,13 V) und
+        <a href="https://www.sciencebuddies.org/science-fair-projects/project-ideas/Energy_p011/energy-power/batteries-the-shocking-truth">Science Buddies</a>.</li>
+      <li><strong>Rotkohl als pH-Indikator:</strong> allgemein bekanntes Schulexperiment; die
+        Farb→pH-Zuordnung der Skala oben ist die gängige Rotkohl-Farbreihe (rot = sauer, grün/gelb = basisch).</li>
+    </ul>
 
     <h2>🥼 Laborkittel selber basteln</h2>
     <p>Günstig &amp; sauber aus einem <strong>übergroßen weißen T-Shirt</strong> (oder alten weißen Hemd):</p>
@@ -278,34 +376,29 @@
     (~9–14 €), saisonal auch buttinette.de.</p>
 
     <h2>🖨️ 3D-Druck – OpenSCAD</h2>
-    <h3>1) Prüf-Panel für den Stromkreis-Detektiv</h3>
-    <p class="lead">Platte mit 10 nummerierten Kontaktlöchern (0–9), einem Start-Kontakt und einem
-    LED-Loch. Reißzwecken/Schrauben von hinten durchstecken, dahinter das versteckte Kabel legen.</p>
-<pre><code>// Stromkreis-Detektiv – Pruef-Panel (mm)
-panel_l = 160; panel_w = 70; panel_t = 3;
-n       = 10;          // Kontakte 0..9
-contact_d = 4.2;       // Loch fuer Reisszwecke/Schraube
-led_d   = 5.2;         // 5-mm-LED
-margin  = 16;
-$fn = 48;
+    <h3>1) Batterie-Reihen-Halter (Station 3)</h3>
+    <p class="lead">Hält zwei AA-Zellen sauber hintereinander in einer Rinne; die Krokoklemmen greifen
+    an den Enden ab. Kein Federkontakt nötig.</p>
+<pre><code>// Batterie-Reihen-Halter fuer 2x AA (mm)
+aa_d   = 14.5;   // AA-Durchmesser
+aa_l   = 50.5;   // AA-Laenge
+wall   = 3;
+gap    = 6;      // Zugang fuer Krokoklemme zwischen/aussen
+len    = 2*aa_l + 3*gap;
+$fn = 64;
 
-module panel() {
-  difference() {
-    cube([panel_l, panel_w, panel_t]);
-    // Reihe nummerierter Kontakte
-    step = (panel_l - 2*margin) / (n-1);
-    for (i = [0:n-1])
-      translate([margin + i*step, panel_w*0.62, -1])
-        cylinder(d=contact_d, h=panel_t+2);
-    // Start-Kontakt
-    translate([margin, panel_w*0.28, -1])
-      cylinder(d=contact_d, h=panel_t+2);
-    // LED-Loch
-    translate([panel_l-margin, panel_w*0.28, -1])
-      cylinder(d=led_d, h=panel_t+2);
-  }
-}
-panel();</code></pre>
+difference() {
+  // Block
+  cube([len, aa_d+2*wall, aa_d/2+wall]);
+  // Rinne fuer die Zellen
+  translate([gap, wall, wall])
+    rotate([0,90,0])
+      cylinder(d=aa_d, h=2*aa_l+2*gap);
+  // Klemm-Zugaenge (Enden + Mitte)
+  for (x=[gap, gap+aa_l+gap/2, gap+2*aa_l+2*gap])
+    translate([x-2, -1, wall+aa_d/4])
+      cube([4, aa_d+2*wall+2, aa_d]);
+}</code></pre>
 
     <h3>2) Flaschenhalter fürs Finale</h3>
 <pre><code>// Kippsicherer Flaschenhalter (mm)
@@ -327,73 +420,111 @@ difference() {
       <tr><td>Natron + Zitronensäure</td><td>dm / Rossmann</td><td>3–4 €</td></tr>
       <tr><td>Wasserfarbkasten + Pinsel</td><td>dm / Schreibwaren</td><td>4–7 €</td></tr>
       <tr><td>Weiße Wachsmalstifte / Kerze</td><td>Schreibwaren / da</td><td>0–3 €</td></tr>
+      <tr><td>Digital-Multimeter (einfach)</td><td>Baumarkt / Amazon</td><td>7–12 €</td></tr>
+      <tr><td>AA-Batterien + Halter, Krokoklemmen</td><td>Baumarkt / Amazon</td><td>5–8 €</td></tr>
       <tr><td>Wasserstoffperoxid 3 %</td><td>Apotheke / dm</td><td>2–4 €</td></tr>
       <tr><td>Hefe, Spülmittel, Öl, Honig, Lebensmittelfarbe</td><td>Supermarkt</td><td>meist da</td></tr>
       <tr><td>Pipetten + Kunststoffbecher</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
       <tr><td>Lupen (4×)</td><td>Amazon / Ebay</td><td>6–10 €</td></tr>
       <tr><td>Kinder-Schutzbrillen (4×)</td><td>Amazon / Baumarkt</td><td>8–12 €</td></tr>
-      <tr><td>LED/Summer, Widerstand, Batteriehalter, Krokoklemmen, Reißzwecken</td><td>Reichelt / Conrad / AliExpress</td><td>5–10 €</td></tr>
       <tr><td>4-stelliges Zahlen-Vorhängeschloss</td><td>Baumarkt / Amazon</td><td>6–8 €</td></tr>
       <tr><td>Weiße T-Shirts (Kittel), falls nötig</td><td>Sozialkaufhaus / Primark</td><td>0–12 €</td></tr>
     </table>
-    <p class="lead"><strong>Realistische Zusatzkosten: ~35–60 €.</strong></p>
+    <p class="lead"><strong>Realistische Zusatzkosten: ~40–65 €.</strong></p>
 
     <h2>🪪 Forscher-Ausweise</h2>
     <p class="no-print lead">Über den Button ganz oben druckst du nur die vier Karten. Am besten auf
-    festes Papier (160–200 g/m²), optional laminieren, Loch + Kordel zum Umhängen.</p>
+    festes Papier (250–300 g/m²), laminieren, Loch + Kordel zum Umhängen. Das große Feld ist für ein
+    <strong>Foto</strong> gedacht – Bild aufkleben oder vor dem Druck einfügen.</p>
     <div id="ausweise">
       <div class="badges">
 
         <div class="badge">
-          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
-          <div class="row">
+          <div class="b-top">
+            <div class="b-brand"><span class="em">🔬</span> AKADEMIE DER<br>JUNGEN FORSCHER</div>
+            <div class="holo" title="Sicherheits-Hologramm"></div>
+          </div>
+          <div class="b-body">
             <div class="photo">🎂</div>
             <div class="fields">
               <div class="name">Jonte</div>
-              <div class="rang"><span class="lead-tag">Leitender Forscher</span></div>
-              <div class="rang">ID-Nr.: 0001</div>
+              <div class="rang">Leitender Forscher</div>
+              <span class="lvl lead">★ Clearance L-1 · Leitung</span>
+              <div class="idline">ID · AJF-0001</div>
             </div>
           </div>
-          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+          <div class="b-foot">
+            <div class="barcode"></div>
+            <div class="bc-num"><span>AJF-0001</span><span>DE · 2026</span></div>
+            <div class="eid">„Ich forsche ehrlich, neugierig und sicher."</div>
+            <div class="sign"><span>Dr. Neutrino, Direktor</span><span>N.</span></div>
+          </div>
         </div>
 
         <div class="badge">
-          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
-          <div class="row">
+          <div class="b-top">
+            <div class="b-brand"><span class="em">🔬</span> AKADEMIE DER<br>JUNGEN FORSCHER</div>
+            <div class="holo" title="Sicherheits-Hologramm"></div>
+          </div>
+          <div class="b-body">
             <div class="photo">🧪</div>
             <div class="fields">
               <div class="name">Emil</div>
-              <div class="rang">Rang: Nachwuchs-Forscher</div>
-              <div class="rang">ID-Nr.: 0002</div>
+              <div class="rang">Nachwuchs-Forscher</div>
+              <span class="lvl">Clearance L-2 · Labor</span>
+              <div class="idline">ID · AJF-0002</div>
             </div>
           </div>
-          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+          <div class="b-foot">
+            <div class="barcode"></div>
+            <div class="bc-num"><span>AJF-0002</span><span>DE · 2026</span></div>
+            <div class="eid">„Ich forsche ehrlich, neugierig und sicher."</div>
+            <div class="sign"><span>Dr. Neutrino, Direktor</span><span>N.</span></div>
+          </div>
         </div>
 
         <div class="badge">
-          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
-          <div class="row">
+          <div class="b-top">
+            <div class="b-brand"><span class="em">🔬</span> AKADEMIE DER<br>JUNGEN FORSCHER</div>
+            <div class="holo" title="Sicherheits-Hologramm"></div>
+          </div>
+          <div class="b-body">
             <div class="photo">🔍</div>
             <div class="fields">
               <div class="name">Mia</div>
-              <div class="rang">Rang: Nachwuchs-Forscherin</div>
-              <div class="rang">ID-Nr.: 0003</div>
+              <div class="rang">Nachwuchs-Forscherin</div>
+              <span class="lvl">Clearance L-2 · Labor</span>
+              <div class="idline">ID · AJF-0003</div>
             </div>
           </div>
-          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+          <div class="b-foot">
+            <div class="barcode"></div>
+            <div class="bc-num"><span>AJF-0003</span><span>DE · 2026</span></div>
+            <div class="eid">„Ich forsche ehrlich, neugierig und sicher."</div>
+            <div class="sign"><span>Dr. Neutrino, Direktor</span><span>N.</span></div>
+          </div>
         </div>
 
         <div class="badge">
-          <div class="top">🔬 AKADEMIE DER JUNGEN FORSCHER</div>
-          <div class="row">
+          <div class="b-top">
+            <div class="b-brand"><span class="em">🔬</span> AKADEMIE DER<br>JUNGEN FORSCHER</div>
+            <div class="holo" title="Sicherheits-Hologramm"></div>
+          </div>
+          <div class="b-body">
             <div class="photo">⚡</div>
             <div class="fields">
               <div class="name">Fiete</div>
-              <div class="rang">Rang: Nachwuchs-Forscher</div>
-              <div class="rang">ID-Nr.: 0004</div>
+              <div class="rang">Nachwuchs-Forscher</div>
+              <span class="lvl">Clearance L-2 · Labor</span>
+              <div class="idline">ID · AJF-0004</div>
             </div>
           </div>
-          <div class="eid">„Ich forsche ehrlich, neugierig und sicher." – Dr. Neutrino</div>
+          <div class="b-foot">
+            <div class="barcode"></div>
+            <div class="bc-num"><span>AJF-0004</span><span>DE · 2026</span></div>
+            <div class="eid">„Ich forsche ehrlich, neugierig und sicher."</div>
+            <div class="sign"><span>Dr. Neutrino, Direktor</span><span>N.</span></div>
+          </div>
         </div>
 
       </div>
